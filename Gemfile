@@ -14,6 +14,7 @@ gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'figaro'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'rails_12factor', group: :production
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
