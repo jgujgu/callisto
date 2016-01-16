@@ -18,6 +18,7 @@ gem 'rails_12factor', group: :production
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
