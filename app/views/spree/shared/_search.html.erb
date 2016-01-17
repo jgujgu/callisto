@@ -4,6 +4,7 @@
     <%= select_tag :taxon,
       options_for_select([[Spree.t(:all_departments), '']] + @taxons.map {|t| [t.name, t.id]}, @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon', class: "form-control" %>
   <% end %>
-  <%= search_field_tag :keywords, params[:keywords], :placeholder => Spree.t(:search), class: "form-control" %>
+  <% placeholder = "Local finds in " + @geocoder_result["city"] + ", " + @geocoder_result["region_code"] + " near " + @geocoder_result["zip_code"]  %>
+  <%= search_field_tag :keywords, params[:keywords], placeholder: placeholder, class: "form-control" %>
   <%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-success-outline" %>
 <% end %>
