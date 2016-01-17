@@ -1,10 +1,6 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
-<%= form_tag spree.products_path, :method => :get, class: "form-inline pull-xs-left", role: "search" do %>
-  <% cache(cache_key_for_taxons) do %>
-    <%= select_tag :taxon,
-      options_for_select([[Spree.t(:all_departments), '']] + @taxons.map {|t| [t.name, t.id]}, @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon', class: "form-control" %>
-  <% end %>
+<%= form_tag spree.products_path, :method => :get, class: "form-inline pull-xs-left nav-search-form", role: "search" do %>
   <% placeholder = "Local finds in " + @geocoder_result["city"] + ", " + @geocoder_result["region_code"] + " near " + @geocoder_result["zip_code"]  %>
-  <%= search_field_tag :keywords, params[:keywords], placeholder: placeholder, class: "form-control" %>
-  <%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-success-outline" %>
+  <%= search_field_tag :keywords, params[:keywords], placeholder: placeholder, class: "form-control search-field" %>
+  <%= submit_tag "Flea", :name => nil, class: "btn btn-success-outline" %>
 <% end %>
