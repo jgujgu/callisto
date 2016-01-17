@@ -1,6 +1,45 @@
-#logo {
-  background-color: red;
-}
 html {
-    overflow-y:scroll;
+  overflow-y:scroll;
+}
+
+div {
+  font-family: "Raleway Regular",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing: 2px;
+}
+
+.brand-container {
+  $flea-size: 2.15em;
+  $secondary-text-size: .55em;
+  > .brand-flea {
+    font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: black;
+    font-size: $flea-size;
+  }
+  > .brand-locals {
+    font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: $brand-teal;
+    position: relative;
+    font-size: $secondary-text-size;
+    top: -1.6em;
+    left: 0.2em;
+    letter-spacing: 1.2em;
+  }
+  > .brand-only {
+    font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: $brand-teal;
+    position: relative;
+    transform: rotate(270deg);
+    font-size: $secondary-text-size;
+    top: -9.25em;
+    left: 5.15em;
+    letter-spacing: 0.08em;
+  }
+  > .brand-square {
+    height: $secondary-text-size - 0.15em;
+    width: $secondary-text-size - 0.15em;
+    background-color: $brand-teal;
+    position: relative;
+    top: -2.32em;
+    left: 5.69em;
+  }
 }

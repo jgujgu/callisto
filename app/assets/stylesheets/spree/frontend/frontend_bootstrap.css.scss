@@ -1,2 +1,13 @@
- @import "bootstrap";
- @import "universal-styles";
+$brand-teal: #37fce0;
+@font-face {
+  font-family: 'Raleway Regular';
+  src: font-url('Raleway-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Raleway Bold';
+  src: font-url('Raleway-Bold.ttf') format('truetype');
+}
+@import "bootstrap";
+@import "universal-styles";
+@import "bootstrap";
+@import "universal-styles";

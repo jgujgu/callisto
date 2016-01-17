@@ -1,5 +1,7 @@
 <nav id="top-nav-bar" class="navbar navbar-light">
-  <a class="navbar-brand" href="#">Brand</a>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= render :partial => 'spree/shared/brand' %>
+  <% end %>
   <!-- navbar-search -->
   <%= render :partial => 'spree/shared/search' %>
 </nav>
