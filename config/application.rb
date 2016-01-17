@@ -46,5 +46,7 @@ module Callisto
     config.active_record.raise_in_transactional_callbacks = true
 
     # fonts
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.assets.precompile += %w(*.ttf)
   end
 end
