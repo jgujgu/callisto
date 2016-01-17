@@ -19,6 +19,7 @@
   height: 5rem;
 }
 
+@import "bootstrap";
 @include media-breakpoint-down(sm) {
   .nav-search-form {
     width: 100%;
