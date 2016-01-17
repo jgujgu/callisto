@@ -7,6 +7,8 @@
   src: font-url('Raleway-Bold.ttf') format('truetype');
 }
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "universal-styles";
 @import "brand";
 @import "nav";
