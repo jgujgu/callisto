@@ -1,0 +1,18 @@
+<% if spree_current_user %>
+  <li class="nav-item">
+    <%= link_to account_path, class: "nav-link", "data-toggle": "tooltip", "data-placement": "bottom", title: "Your Account" do %>
+      <i class="fa fa-user fa-3"></i>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to spree_logout_path, class: "nav-link", "data-toggle": "tooltip", "data-placement": "bottom", title: "Logout" do %>
+      <i class="fa fa-share fa-3"></i>
+    <% end %>
+  </li>
+<% else %>
+  <li class="nav-item">
+    <%= link_to spree_login_path, class: "nav-link", "data-toggle": "tooltip", "data-placement": "bottom", title: "Login" do %>
+      <i class="fa fa-sign-in fa-3"></i>
+    <% end %>
+  </li>
+<% end %>

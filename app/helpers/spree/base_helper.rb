@@ -14,14 +14,14 @@ module Spree
 
     def link_to_cart(text = nil)
       text = text ? h(text) : Spree.t(:cart)
-      text = "<i class='fa fa-shopping-cart fa-3'></i>"
+      text = "<i class='fa fa-shopping-bag fa-3'></i>"
       css_class = "nav-link "
 
       if simple_current_order.nil? or simple_current_order.item_count.zero?
         text = "#{text} (0)"
         css_class += 'empty'
       else
-        text = "#{text} (#{simple_current_order.item_count})  <span class='amount'>#{simple_current_order.display_total.to_html}</span>"
+        text = "#{text} (#{simple_current_order.item_count})"
         css_class += 'full'
       end
 
