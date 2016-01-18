@@ -1,3 +1,6 @@
+$brand-teal: #37fce0;
+$transition-time: 0.25s;
+
 html {
   overflow-y:scroll;
 }
@@ -5,4 +8,25 @@ html {
 div {
   font-family: "Raleway Regular",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
   letter-spacing: 2px;
+}
+
+.fa {
+  font-size: 1.5em;
+}
+
+.btn {
+  border: 2px solid transparent !important;
+  border-radius: 0rem !important;
+}
+
+.btn-success-outline  {
+  color: black !important;
+  border-color: $brand-teal !important;
+  transition: $transition-time;
+}
+
+.btn-success-outline:hover, .btn-success-outline:focus  {
+  background-color: $brand-teal !important;
+  transition: $transition-time;
+  outline: none !important;
 }

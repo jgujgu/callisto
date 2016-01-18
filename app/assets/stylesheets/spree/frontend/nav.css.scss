@@ -1,14 +1,30 @@
+$brand-teal: #37fce0;
+
 .nav-search-form {
-  width: 55%;
+  width: 65%;
   margin-left: 8%;
   padding-top: 1.5rem;
   > .search-field {
+    border: 2px solid black;
+    border-radius: 0rem;
+    outline: none !important;
     width: 75% !important;
+  }
+  > .search-field:focus {
+    border: 2px solid black;
   }
   > .btn {
     padding-right: 2rem;
     padding-left: 2rem;
   }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black !important;
+}
+
+.navbar-light .navbar-nav .nav-link.full {
+  color: $brand-teal !important;
 }
 
 .user-links {
@@ -21,11 +37,21 @@
 
 @import "bootstrap";
 
-@include media-breakpoint-down(md) {
-  body {
-    background-color: red;
-  }
+@include media-breakpoint-down(lg) {
+  /*body {*/
+    /*background-color: pink;*/
+  /*}*/
   .nav-search-form {
+    width: 60%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  /*body {*/
+    /*background-color: red;*/
+  /*}*/
+  .nav-search-form {
+    width: 55%;
     margin-left: 1rem;
     padding-top: 1.5rem;
     > .search-field {
@@ -41,9 +67,9 @@
   }
 }
 @include media-breakpoint-down(sm) {
-  body {
-    background-color: lawngreen !important;
-  }
+  /*body {*/
+    /*background-color: lawngreen !important;*/
+  /*}*/
   .nav-search-form {
     width: 100%;
     margin-left: 0rem !important;
@@ -53,6 +79,7 @@
     }
     > .btn {
       width: 100%;
+      margin-top: 0.25rem;
       padding-right: 2rem;
       padding-left: 2rem;
     }

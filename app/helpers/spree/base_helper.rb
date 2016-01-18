@@ -13,19 +13,18 @@ module Spree
     end
 
     def link_to_cart(text = nil)
-      text = text ? h(text) : Spree.t(:cart)
       text = "<i class='fa fa-shopping-bag fa-3'></i>"
       css_class = "nav-link "
 
       if simple_current_order.nil? or simple_current_order.item_count.zero?
-        text = "#{text} (0)"
         css_class += 'empty'
       else
-        text = "#{text} (#{simple_current_order.item_count})"
         css_class += 'full'
       end
+      qty = simple_current_order.item_count
+      total = simple_current_order.display_total.to_html
 
-      link_to text.html_safe, spree.cart_path, :class => "cart-info #{css_class}"
+      link_to text.html_safe, spree.cart_path, :class => "cart-info #{css_class}", "data-toggle": "tooltip", "data-placement": "bottom", title: "#{total} (#{qty})"
     end
 
     # human readable list of variant options
