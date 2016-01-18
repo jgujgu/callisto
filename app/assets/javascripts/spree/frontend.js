@@ -7,4 +7,5 @@
 //= require jquery_ujs
 //= require tether
 //= require bootstrap
+//= require mobile-detect
 //= require_tree .
