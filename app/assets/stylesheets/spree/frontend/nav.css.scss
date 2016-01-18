@@ -15,10 +15,12 @@ $sm-padding: 0%;
 }
 
 .shrunken-search {
-  display: none;
+  margin-top: -300px;
+  transition: 1s;
 }
 
 .nav-search-form {
+  transition: 1s;
   width: 60%;
   margin-left: 8%;
   padding-top: 1.5rem;
