@@ -14,6 +14,12 @@ $sm-padding: 0%;
   padding-right: $xl-padding;
 }
 
+.shrunken-search {
+  display: none;
+  height: 0px;
+  transition: 0.5s;
+}
+
 .nav-search-form {
   width: 60%;
   margin-left: 8%;
