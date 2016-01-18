@@ -1,7 +1,21 @@
 $brand-teal: #37fce0;
+$xl-padding: 16%;
+$lg-padding: 8%;
+$md-padding: 6%;
+$sm-padding: 0%;
+
+#top-nav-bar {
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  z-index: 1030;
+  background-color: white;
+  padding-left: $xl-padding;
+  padding-right: $xl-padding;
+}
 
 .nav-search-form {
-  width: 65%;
+  width: 60%;
   margin-left: 8%;
   padding-top: 1.5rem;
   > .search-field {
@@ -44,18 +58,19 @@ $brand-teal: #37fce0;
 @import "bootstrap";
 
 @include media-breakpoint-down(lg) {
-  /*body {*/
-  /*background-color: pink;*/
-  /*}*/
-  .nav-search-form {
-    width: 60%;
+  body {
+    background-color: pink;
+  }
+  #top-nav-bar {
+    padding-left: $lg-padding;
+    padding-right: $lg-padding;
   }
 }
 
 @include media-breakpoint-down(md) {
-  /*body {*/
-  /*background-color: red;*/
-  /*}*/
+  body {
+    background-color: red;
+  }
   .nav-search-form {
     width: 55%;
     margin-left: 1rem;
@@ -71,11 +86,15 @@ $brand-teal: #37fce0;
       padding-top: 1.5rem
     }
   }
+  #top-nav-bar {
+    padding-left: $md-padding !important;
+    padding-right: $md-padding !important;
+  }
 }
 @include media-breakpoint-down(sm) {
-  /*body {*/
-  /*background-color: lawngreen !important;*/
-  /*}*/
+  body {
+    background-color: lawngreen !important;
+  }
   .nav-search-form {
     width: 100%;
     margin-left: 0rem !important;
@@ -93,7 +112,7 @@ $brand-teal: #37fce0;
   .user-links {
     float: none;
     position: absolute;
-    right: 1rem;
+    right: 2.5rem;
     padding-top: 1.5rem
   }
 }
