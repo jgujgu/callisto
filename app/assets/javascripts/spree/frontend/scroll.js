@@ -2,6 +2,8 @@ var lastScrollTop = 0;
 var md = new MobileDetect(window.navigator.userAgent);
 var searchPlaceholder;
 $(document).ready(function() {
+  var $navSearchForm = $("#nav-search-form");
+  var $btnSearch = $("#btn-search");
   var $keywords = $("#keywords");
   searchPlaceholder = $keywords.attr("placeholder");
   $keywords.bind('focusin focus', function(e){
@@ -9,6 +11,11 @@ $(document).ready(function() {
     $navSearchForm.removeClass("shrunken-search");
     showSearch($navSearchForm, $btnSearch, $keywords);
   });
+  setInterval(function() {
+    if (!$keywords.is(':focus')) {
+      hideSearch($navSearchForm, $btnSearch, $keywords);
+    }
+  }, 5000);
 });
 
 
@@ -18,9 +25,6 @@ if (md.phone()) {
     var $navSearchForm = $("#nav-search-form");
     var $btnSearch = $("#btn-search");
     var $keywords = $("#keywords");
-    setTimeout(function() {
-      hideSearch($navSearchForm, $btnSearch, $keywords);
-    }, 5000);
     if (st === 0) {
       $navSearchForm.removeClass("shrunken-search");
       setTimeout(function() {
