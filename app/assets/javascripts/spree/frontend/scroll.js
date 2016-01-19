@@ -2,11 +2,11 @@ var lastScrollTop = 0;
 var md = new MobileDetect(window.navigator.userAgent);
 var searchPlaceholder;
 $(document).ready(function() {
-    var $keywords = $("#keywords");
-    searchPlaceholder = $keywords.attr("placeholder");
-    $keywords.focus(function(e) {
-      e.preventDefault();
-    })
+  var $keywords = $("#keywords");
+  searchPlaceholder = $keywords.attr("placeholder");
+  $keywords.focus(function(e) {
+    e.preventDefault();
+  })
 });
 
 if (md.phone()) {
@@ -16,7 +16,10 @@ if (md.phone()) {
     var $btnSearch = $("#btn-search");
     var $keywords = $("#keywords");
     if (st === 0) {
-      return;
+      $navSearchForm.removeClass("shrunken-search");
+      setTimeout(function() {
+        showSearch($navSearchForm, $btnSearch, $keywords);
+      },1000);
     }
     if (st > lastScrollTop){
       hideSearch($navSearchForm, $btnSearch, $keywords);
