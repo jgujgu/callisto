@@ -2,8 +2,11 @@ var lastScrollTop = 0;
 var md = new MobileDetect(window.navigator.userAgent);
 var searchPlaceholder;
 $(document).ready(function() {
-    searchPlaceholder = $("#keywords").attr("placeholder");
-    console.log(searchPlaceholder);
+    var $keywords = $("#keywords");
+    searchPlaceholder = $keywords.attr("placeholder");
+    $keywords.focus(function(e) {
+      e.preventDefault();
+    })
 });
 
 if (md.phone()) {
@@ -21,7 +24,7 @@ if (md.phone()) {
       $navSearchForm.removeClass("shrunken-search");
       setTimeout(function() {
         showSearch($navSearchForm, $btnSearch, $keywords);
-      },500);
+      },750);
     }
     lastScrollTop = st;
   });
