@@ -6,6 +6,8 @@ $(document).ready(function() {
   searchPlaceholder = $keywords.attr("placeholder");
   $keywords.bind('focusin focus', function(e){
     e.preventDefault();
+    $navSearchForm.removeClass("shrunken-search");
+    showSearch($navSearchForm, $btnSearch, $keywords);
   });
 });
 
