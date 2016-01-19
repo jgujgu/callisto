@@ -10,6 +10,8 @@ $sm-padding: 0%;
   left: 0px;
   z-index: 1030;
   background-color: white;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
   padding-left: $xl-padding;
   padding-right: $xl-padding;
 }
@@ -19,6 +21,10 @@ $sm-padding: 0%;
   transition: 5s;
 }
 
+.navbar-brand {
+  padding-top: 0rem !important;
+}
+
 .nav-search-form > .transparent {
   color: transparent !important;
   background-color: transparent !important;
@@ -26,7 +32,6 @@ $sm-padding: 0%;
   border-color: transparent !important;
   transition: 0s !important;
 }
-
 
 .nav-search-form {
   transition: 1s;
