@@ -18,15 +18,16 @@ if (md.phone()) {
     var $navSearchForm = $("#nav-search-form");
     var $btnSearch = $("#btn-search");
     var $keywords = $("#keywords");
+    setTimeout(function() {
+      hideSearch($navSearchForm, $btnSearch, $keywords);
+    }, 5000);
     if (st === 0) {
       $navSearchForm.removeClass("shrunken-search");
       setTimeout(function() {
         showSearch($navSearchForm, $btnSearch, $keywords);
       },1000);
     }
-    if (st > lastScrollTop){
-      hideSearch($navSearchForm, $btnSearch, $keywords);
-    } else {
+    if (st < lastScrollTop){
       $navSearchForm.removeClass("shrunken-search");
       setTimeout(function() {
         showSearch($navSearchForm, $btnSearch, $keywords);
