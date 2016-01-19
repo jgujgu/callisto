@@ -6,7 +6,11 @@ $(document).ready(function() {
   searchPlaceholder = $keywords.attr("placeholder");
   $keywords.focus(function(e) {
     e.preventDefault();
-  })
+  });
+});
+
+$('body').bind('focusin focus', function(e){
+  e.preventDefault();
 });
 
 if (md.phone()) {
