@@ -16,8 +16,17 @@ $sm-padding: 0%;
 
 .shrunken-search {
   margin-top: -300px;
-  transition: 1s;
+  transition: 5s;
 }
+
+.nav-search-form > .transparent {
+  color: transparent !important;
+  background-color: transparent !important;
+  font-color: transparent !important;
+  border-color: transparent !important;
+  transition: 0s !important;
+}
+
 
 .nav-search-form {
   transition: 1s;
@@ -25,6 +34,7 @@ $sm-padding: 0%;
   margin-left: 8%;
   padding-top: 1.5rem;
   > .search-field {
+    background-color: transparent;
     border-width: 0px 0px 2px;
     border-style: none none solid;
     border-radius: 0rem;
@@ -32,6 +42,7 @@ $sm-padding: 0%;
     outline: none !important;
     width: 75% !important;
     padding-left: 0px;
+    transition: 2s;
   }
   > .search-field:focus {
     border-width: 0px 0px 2px;
@@ -40,8 +51,10 @@ $sm-padding: 0%;
     border-color: black;
   }
   > .btn {
+    background-color: transparent;
     padding-right: 2rem;
     padding-left: 2rem;
+    transition: 2s;
   }
 }
 
