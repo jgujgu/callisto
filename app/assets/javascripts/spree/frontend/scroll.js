@@ -15,7 +15,7 @@ $(document).ready(function() {
     if (!$keywords.is(':focus')) {
       hideSearch($navSearchForm, $btnSearch, $keywords);
     }
-  }, 5000);
+  }, 6000);
 });
 
 
