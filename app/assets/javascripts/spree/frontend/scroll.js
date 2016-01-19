@@ -24,7 +24,7 @@ if (md.phone()) {
       $navSearchForm.removeClass("shrunken-search");
       setTimeout(function() {
         showSearch($navSearchForm, $btnSearch, $keywords);
-      },750);
+      },1000);
     }
     lastScrollTop = st;
   });
