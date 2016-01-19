@@ -4,14 +4,11 @@ var searchPlaceholder;
 $(document).ready(function() {
   var $keywords = $("#keywords");
   searchPlaceholder = $keywords.attr("placeholder");
-  $keywords.focus(function(e) {
+  $keywords.bind('focusin focus', function(e){
     e.preventDefault();
   });
 });
 
-$('body').bind('focusin focus', function(e){
-  e.preventDefault();
-});
 
 if (md.phone()) {
   $(window).scroll(function(event){
