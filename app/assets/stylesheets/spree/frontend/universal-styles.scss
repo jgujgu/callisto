@@ -30,3 +30,17 @@ div {
   transition: $transition-time;
   outline: none !important;
 }
+
+.flea-field {
+  background-color: transparent !important;
+  border-width: 0px 0px 2px !important;
+  border-style: none none solid !important;
+  border-radius: 0rem !important;
+  border-color: black !important;
+  outline: none !important;
+  transition: 2s !important;
+}
+
+#wrapper {
+  margin-top: 6rem;
+}

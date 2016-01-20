@@ -39,15 +39,8 @@ $sm-padding: 0%;
   margin-left: 8%;
   padding-top: 1.5rem;
   > .search-field {
-    background-color: transparent;
-    border-width: 0px 0px 2px;
-    border-style: none none solid;
-    border-radius: 0rem;
-    border-color: black;
-    outline: none !important;
     width: 75% !important;
     padding-left: 0px;
-    transition: 3s;
   }
   > .search-field:focus {
     border-width: 0px 0px 2px;
