@@ -5,13 +5,13 @@
   <!-- navbar-search -->
   <%= render :partial => 'spree/shared/search' %>
   <ul class="nav navbar-nav pull-xs-right user-links">
-    <li id="search-bar" class="nav-item"></li>
     <li id="link-to-cart" class="nav-item" data-hook>
       <noscript>
         <%= link_to Spree.t(:cart), '/cart', class: "nav-link" %>
       </noscript>
       &nbsp;
     </li>
+    <li id="search-bar" class="nav-item"></li>
     <script>Spree.fetch_cart('<%= j spree.cart_link_url %>')</script>
   </ul>
 </nav>
