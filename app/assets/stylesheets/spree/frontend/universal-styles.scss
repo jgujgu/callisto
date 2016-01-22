@@ -41,6 +41,22 @@ div {
   transition: 2s !important;
 }
 
+#content {
+  background-color: lightpink;
+}
+
 #wrapper {
   margin-top: 6rem;
+  background-color: indigo;
+}
+
+.container {
+  background-color: lavenderblush;
+}
+
+.background-image {
+  padding: 0px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

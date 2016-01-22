@@ -1,5 +1,30 @@
-.index-main-store {
-  .index-main-store--image {
-    width: inherit;
+.store-hero {
+  background-color: lightgreen;
+  height: 80vh;
+}
+
+.product-map-widget {
+  background-color: lightgreen;
+  padding-right: 0rem !important;
+}
+
+.product-map-widget--child {
+  height: 40vh;
+}
+
+.local-map {
+  background-color: rebeccapurple;
+}
+
+@import "bootstrap";
+
+@include media-breakpoint-down(sm) {
+  .product-map-widget {
+    margin-top: 5vh;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+  .product-map-widget--child {
+    height: 60vh;
   }
 }

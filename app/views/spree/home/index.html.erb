@@ -1,13 +1,20 @@
-<% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <%= render :partial => 'spree/shared/taxonomies' %>
-  </div>
-<% end %>
-<div class="col-md-6 index-main-store">
-  <%= image_tag "clothes.jpg", class: "index-main-store--image" %>
+<style media="screen">
+  #store-hero-img {
+    background-image: url(<%= image_url "clothes.jpg"%>);
+  }
+  #store-product-img {
+    background-image: url(<%= image_url "clothes.jpg"%>);
+  }
+</style>
+
+<div id="store-hero-img" class="col-md-8 store-hero background-image store-hero-img">
 </div>
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
-  <% end %>
+
+<div class="col-md-4 product-map-widget">
+  <div id="store-product-img" class="product-map-widget--child background-image store-product-img" >
+
+  </div>
+  <div id="local-map" class="product-map-widget--child local-map">
+
+  </div>
 </div>

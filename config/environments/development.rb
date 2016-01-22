@@ -40,4 +40,11 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
   config.assets.precompile += %w(*.ttf)
+
+  #configure unicorn
+
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger.const_get(
+    ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'DEBUG'
+  )
 end
