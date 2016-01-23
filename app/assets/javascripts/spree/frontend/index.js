@@ -8,5 +8,6 @@ $(document).ready(function() {
     var $slideElement = $(e.relatedTarget);
     var index = $slideElement.data('index');
     $indexProductCarousel.carousel(parseInt(index));
+    google.maps.event.trigger(markers[index], 'click');
   });
 });
