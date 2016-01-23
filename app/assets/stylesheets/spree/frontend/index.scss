@@ -16,6 +16,14 @@
   background-color: rebeccapurple;
 }
 
+.index-store-carousel-image {
+  height: 80vh;
+}
+
+.index-product-carousel-image {
+  height: 40vh;
+}
+
 @import "bootstrap";
 
 @include media-breakpoint-down(md) {
@@ -34,5 +42,9 @@
   }
   .product-map-widget--child {
     height: 60vh;
+  }
+  .store-hero {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 }

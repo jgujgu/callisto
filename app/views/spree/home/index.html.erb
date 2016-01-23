@@ -1,20 +1,16 @@
 <style media="screen">
-  #store-hero-img {
-    background-image: url(<%= image_url "clothes.jpg"%>);
-  }
   #store-product-img {
-    background-image: url(<%= image_url "clothes.jpg"%>);
+    background-image: url(<%= image_url "wax.jpg"%>);
   }
 </style>
 
-<div id="store-hero-img" class="col-lg-8 store-hero background-image store-hero-img">
+<div id="store-hero-img" class="col-lg-8 store-hero">
+  <%= render :partial => 'spree/partials/index_store_carousel' %>
 </div>
 
 <div class="col-lg-4 product-map-widget">
-  <div id="store-product-img" class="product-map-widget--child background-image store-product-img" >
-
-  </div>
+  <%= render :partial => 'spree/partials/index_product_carousel' %>
   <div id="local-map" class="product-map-widget--child local-map">
-
   </div>
 </div>
+
