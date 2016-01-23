@@ -126,6 +126,7 @@ GEM
     geocoder (1.2.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     handlebars_assets (0.22.0)
       execjs (~> 2.0)
       multi_json (~> 1.0)
@@ -148,6 +149,8 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    lodash-rails (4.0.0)
+      railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -385,8 +388,10 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   geocoder
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+  lodash-rails
   pg (~> 0.15)
   pry-rails
   rails (= 4.2.5)

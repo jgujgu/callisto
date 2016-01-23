@@ -8,4 +8,6 @@
 //= require tether
 //= require bootstrap
 //= require mobile-detect.min
+//= require lodash
+//= require gmaps/google
 //= require_tree .

@@ -22,6 +22,8 @@ source 'https://rails-assets.org' do
 end
 gem 'geocoder'
 gem 'unicorn'
+gem 'lodash-rails'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'byebug'
