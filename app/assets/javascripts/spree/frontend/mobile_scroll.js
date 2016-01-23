@@ -1,6 +1,9 @@
 var lastScrollTop = 0;
 var md = new MobileDetect(window.navigator.userAgent);
 var searchPlaceholder;
+var hideSeconds = 6000;
+var showSeconds = 1000;
+var $interval;
 
 
 if (md.phone()) {
@@ -14,31 +17,32 @@ if (md.phone()) {
       $navSearchForm.removeClass("shrunken-search");
       showSearch($navSearchForm, $btnSearch, $keywords);
     });
-    setInterval(function() {
-      if (!$keywords.is(':focus')) {
-        hideSearch($navSearchForm, $btnSearch, $keywords);
-      }
-    }, 6000);
+
+    $interval = setHideInterval($navSearchForm, $btnSearch, $keywords);
   });
   $(window).scroll(function(event){
     var st = $(this).scrollTop();
     var $navSearchForm = $("#nav-search-form");
     var $btnSearch = $("#btn-search");
     var $keywords = $("#keywords");
-    if (st === 0) {
-      $navSearchForm.removeClass("shrunken-search");
-      setTimeout(function() {
-        showSearch($navSearchForm, $btnSearch, $keywords);
-      },1000);
-    }
     if (st < lastScrollTop){
       $navSearchForm.removeClass("shrunken-search");
+      clearInterval($interval);
+      $interval = setHideInterval($navSearchForm, $btnSearch, $keywords);
       setTimeout(function() {
         showSearch($navSearchForm, $btnSearch, $keywords);
-      },1000);
+      },showSeconds);
     }
     lastScrollTop = st;
   });
+}
+
+function setHideInterval($navSearchForm, $btnSearch, $keywords) {
+  return setInterval(function() {
+    if (!$keywords.is(':focus')) {
+      hideSearch($navSearchForm, $btnSearch, $keywords);
+    }
+  }, hideSeconds);
 }
 
 function hideSearch($navSearchForm, $btnSearch, $keywords) {

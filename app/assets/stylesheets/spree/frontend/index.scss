@@ -18,6 +18,14 @@
 
 @import "bootstrap";
 
+@include media-breakpoint-down(md) {
+  .product-map-widget {
+    margin-top: 5vh;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}
+
 @include media-breakpoint-down(sm) {
   .product-map-widget {
     margin-top: 5vh;

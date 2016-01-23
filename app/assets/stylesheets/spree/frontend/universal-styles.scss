@@ -10,6 +10,14 @@ div {
   letter-spacing: 2px;
 }
 
+@import "bootstrap";
+
+@include media-breakpoint-up(lg) {
+  .container {
+    max-width: 1440px !important;
+  }
+}
+
 .fa {
   font-size: 1.5em;
 }
