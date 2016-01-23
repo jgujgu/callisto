@@ -22,7 +22,9 @@ RichMarkerBuilder = (function(superClass) {
     var marker;
     marker = document.createElement("div");
     marker.setAttribute('class', 'marker_container');
-    //marker.innerHTML = this.args.marker;
+    if (typeof this.args.id === 'number') {
+      marker.setAttribute('id', 'marker-store-' + this.args.id.toString());
+    }
     marker.innerHTML = "hello";
     return {
       content: marker
@@ -62,7 +64,8 @@ $(document).ready(function() {
   $indexStoreCarousel.on('slide.bs.carousel', function (e) {
     var $slideElement = $(e.relatedTarget);
     var index = $slideElement.data('index');
-    var result = google.maps.event.trigger(markers[index], 'click');
-    console.log(result);
+    $('.marker_container').removeClass('marker-focused');
+    var $marker = $('#marker-store-' + index.toString());
+    $marker.addClass('marker-focused')
   });
 });

@@ -41,6 +41,7 @@ module Spree
         marker.lat store[:lat]
         marker.lng store[:lng]
         marker.infowindow render_to_string(:partial => "/spree/partials/store_marker", locals: { store: store, index: index})
+        marker.json({ id: index })
         index += 1
       end
       @markers = @store_markers + @user_marker
