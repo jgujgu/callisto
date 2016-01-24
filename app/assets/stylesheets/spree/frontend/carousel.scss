@@ -1,0 +1,44 @@
+.carousel-fade {
+  .carousel-inner {
+    .carousel-item {
+      transition-property: opacity;
+      transition: 1s;
+    }
+
+    .carousel-item,
+    .active.left,
+    .active.right {
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .active,
+    .next.left,
+    .prev.right {
+      opacity: 1;
+      transition: 1s;
+    }
+
+    .next,
+    .prev,
+    .active.left,
+    .active.right {
+      left: 0;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.carousel-control.right {
+  background-image: none;
+  background-repeat: none;
+}
+
+.carousel-control.left {
+  background-image: none;
+  background-repeat: none;
+}
+
+.carousel-inner {
+  border-radius: 0.1rem;
+}

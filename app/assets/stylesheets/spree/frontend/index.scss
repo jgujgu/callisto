@@ -1,19 +1,19 @@
 .store-hero {
-  background-color: lightgreen;
   height: 80vh;
 }
 
+.thin-border-right {
+  padding-right: 0.1rem !important;
+  border-right: 1px solid black;
+}
+
 .product-map-widget {
-  background-color: lightgreen;
+  padding-left: 0.65rem !important;
   padding-right: 0rem !important;
 }
 
 .product-map-widget--child {
   height: 40vh;
-}
-
-.store-map {
-  background-color: rebeccapurple;
 }
 
 .index-store-carousel-image {
@@ -24,22 +24,43 @@
   height: 40vh;
 }
 
+.thick-border {
+  border-right: 2px solid #000;
+  > .carousel {
+    padding-right: 0.5rem;
+  }
+}
+
 @import "bootstrap";
 
 @include media-breakpoint-down(md) {
+  .thin-border-right {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+    border-right: none;
+  }
+  .thin-border-bottom {
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid black;
+  }
   .product-map-widget {
-    margin-top: 5vh;
-    padding-left: 0rem;
-    padding-right: 0rem;
+    margin-top: 4vh;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+  .thick-border {
+    border-right: none;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0rem;
+    > .carousel {
+      padding-right: 0rem;
+      padding-bottom: 0.5rem;
+    }
   }
 }
 
 @include media-breakpoint-down(sm) {
-  .product-map-widget {
-    margin-top: 5vh;
-    padding-left: 0rem;
-    padding-right: 0rem;
-  }
   .product-map-widget--child {
     height: 60vh;
   }

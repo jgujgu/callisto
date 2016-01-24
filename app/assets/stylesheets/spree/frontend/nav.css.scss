@@ -76,9 +76,6 @@ $sm-padding: 0%;
 @import "bootstrap";
 
 @include media-breakpoint-down(lg) {
-  body {
-    background-color: pink;
-  }
   #top-nav-bar {
     padding-left: $lg-padding;
     padding-right: $lg-padding;
@@ -86,9 +83,6 @@ $sm-padding: 0%;
 }
 
 @include media-breakpoint-down(md) {
-  body {
-    background-color: red;
-  }
   .nav-search-form {
     width: 55%;
     margin-left: 1rem;
@@ -110,9 +104,6 @@ $sm-padding: 0%;
   }
 }
 @include media-breakpoint-down(sm) {
-  body {
-    background-color: lawngreen !important;
-  }
   .nav-search-form {
     width: 100%;
     margin-left: 0rem !important;

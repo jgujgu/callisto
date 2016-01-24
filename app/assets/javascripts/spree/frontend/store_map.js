@@ -19,15 +19,22 @@ RichMarkerBuilder = (function(superClass) {
   };
 
   RichMarkerBuilder.prototype.rich_marker_options = function() {
-    var marker;
-    marker = document.createElement("div");
-    marker.setAttribute('class', 'marker_container');
+    var marker = document.createElement("div");
     if (typeof this.args.id === 'number') {
       marker.setAttribute('id', 'marker-store-' + this.args.id.toString());
+      if (this.args.id === 0) {
+        marker.setAttribute('class', 'marker-container brand-square marker-focused');
+      } else {
+        marker.setAttribute('class', 'marker-container brand-square');
+      }
+    } else {
+      marker.setAttribute('class', 'marker-user');
+      var userIcon = "<i class='fa fa-user fa-3'></i>";
+      marker.innerHTML = userIcon;
     }
-    marker.innerHTML = "hello";
     return {
-      content: marker
+      content: marker,
+      shadow: "none"
     };
   };
 
@@ -36,8 +43,6 @@ RichMarkerBuilder = (function(superClass) {
 })(Gmaps.Google.Builders.Marker);
 
 $(document).ready(function() {
-  console.log(markers);
-
   //user always the last marker
   var userMarker = markers[markers.length - 1];
 
@@ -64,8 +69,8 @@ $(document).ready(function() {
   $indexStoreCarousel.on('slide.bs.carousel', function (e) {
     var $slideElement = $(e.relatedTarget);
     var index = $slideElement.data('index');
-    $('.marker_container').removeClass('marker-focused');
+    $('.marker-container').removeClass('marker-focused');
     var $marker = $('#marker-store-' + index.toString());
-    $marker.addClass('marker-focused')
+    $marker.addClass('marker-focused');
   });
 });
