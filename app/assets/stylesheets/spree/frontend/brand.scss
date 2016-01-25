@@ -24,15 +24,15 @@ $brand-teal: #37fce0;
     transform: rotate(270deg);
     font-size: $secondary-text-size;
     top: -9.25em;
-    left: 5.2em;
-    letter-spacing: 0.08em;
+    left: 5.25em;
+    letter-spacing: 0.03em;
   }
   > .brand-square {
     height: $secondary-text-size - 0.15em;
     width: $secondary-text-size - 0.15em;
     background-color: $brand-teal;
     position: relative;
-    top: -2.32em;
+    top: -2.33em;
     left: 5.69em;
     border-radius: 0.1rem;
   }
@@ -41,6 +41,15 @@ $brand-teal: #37fce0;
 @import "bootstrap";
 
 @supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  .brand-container {
+    > .brand-only {
+      left: 5.26em;
+      letter-spacing: 0.08em;
+    }
+    > .brand-square {
+      top: -2.32em;
+    }
+  }
   @include media-breakpoint-down(sm) {
     .brand-container {
       > .brand-only {
@@ -49,9 +58,6 @@ $brand-teal: #37fce0;
       > .brand-square {
         top: -2.28em;
       }
-    }
-    body {
-      background-color:red !important;
     }
   }
 }
