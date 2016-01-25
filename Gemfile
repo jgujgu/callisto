@@ -16,6 +16,7 @@ gem "solidus_multi_domain"
 gem 'figaro'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'font-awesome-sass'
+gem "autoprefixer-rails"
 gem 'rails_12factor', group: :production
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

@@ -1,22 +1,21 @@
 .carousel-fade {
   .carousel-inner {
     .carousel-item {
-      transition-property: opacity;
-      transition: 1s;
+      transition: opacity ease-in-out .7s;
     }
 
     .carousel-item,
     .active.left,
     .active.right {
       opacity: 0;
-      transition: 1s;
+      transition: opacity ease-in-out .7s;
     }
 
     .active,
     .next.left,
     .prev.right {
       opacity: 1;
-      transition: 1s;
+      transition: opacity ease-in-out .7s;
     }
 
     .next,
