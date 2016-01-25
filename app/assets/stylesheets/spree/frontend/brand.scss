@@ -37,3 +37,8 @@ $brand-teal: #37fce0;
     border-radius: 0.1rem;
   }
 }
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  body {
+    background-color:red !important;
+  }
+}
