@@ -53,6 +53,7 @@ $brand-teal: #37fce0;
   @include media-breakpoint-down(sm) {
     .brand-container {
       > .brand-only {
+        left: 5.24em;
         letter-spacing: 0.065em;
       }
       > .brand-square {
