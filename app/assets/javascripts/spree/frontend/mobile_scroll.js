@@ -1,7 +1,7 @@
 var lastScrollTop = 0;
 var md = new MobileDetect(window.navigator.userAgent);
 var searchPlaceholder;
-var hideSeconds = 6000;
+var hideSeconds = 4500;
 var showSeconds = 1000;
 var $interval;
 
