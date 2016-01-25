@@ -38,6 +38,12 @@ $brand-teal: #37fce0;
   }
 }
 @supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  .brand-container {
+    > .brand-only {
+      left: 5.25em;
+      letter-spacing: 0.065em;
+    }
+  }
   body {
     background-color:red !important;
   }
