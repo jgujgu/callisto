@@ -13,7 +13,7 @@ module Spree
     end
 
     def link_to_cart(text = nil)
-      text = "<i class='fa fa-shopping-bag fa-3'></i>"
+      text = "<i class='fa fa-shopping-cart fa-3'></i>"
       css_class = "nav-link "
 
       if simple_current_order.nil? or simple_current_order.item_count.zero?

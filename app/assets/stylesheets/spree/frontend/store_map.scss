@@ -2,14 +2,14 @@ $brand-teal: #37fce0;
 $transition-time: 0.5s;
 
 .marker-focused {
-  background-color: black !important;
+  background-color: $brand-teal !important;
   transition: $transition-time;
 }
 
 .marker-container.brand-square {
   height: 1.5em;
   width: 1.5em;
-  background-color: $brand-teal;
+  background-color: black;
   border-radius: 0.1rem;
   transition: $transition-time;
 }
