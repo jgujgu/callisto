@@ -1,0 +1,10 @@
+<p>
+  <% current_store.as_json.each do |k,v| %>
+    <h3>
+      <%= k %>:
+    </h3>
+    <p>
+      <%= v %>
+    </p>
+  <% end %>
+</p>
