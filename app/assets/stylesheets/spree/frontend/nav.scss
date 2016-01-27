@@ -1,0 +1,132 @@
+$brand-teal: #37fce0;
+$xl-padding: 16%;
+$lg-padding: 8%;
+$md-padding: 6%;
+$sm-padding: 0%;
+
+#top-nav-bar {
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  z-index: 1030;
+  background-color: white;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-left: $xl-padding;
+  padding-right: $xl-padding;
+}
+
+.shrunken-search {
+  margin-top: -300px;
+  transition: 3s;
+}
+
+.navbar-brand {
+  padding-top: 0rem !important;
+}
+
+.nav-search-form > .transparent {
+  color: transparent !important;
+  background-color: transparent !important;
+  font-color: transparent !important;
+  border-color: transparent !important;
+  transition: 0s !important;
+}
+
+.nav-search-form {
+  transition: 1s;
+  width: 60%;
+  margin-left: 8%;
+  padding-top: 1.5rem;
+  > .search-field {
+    width: 75% !important;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  > .search-field:focus {
+    border-width: 0px 0px 2px;
+    border-style: none none solid;
+    border-radius: 0rem;
+    border-color: black;
+  }
+  > .btn {
+    background-color: transparent;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    transition: 0.5s;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black !important;
+}
+
+.navbar-light .navbar-nav .nav-link.full {
+  color: $brand-teal !important;
+}
+
+.user-links {
+  padding-top: 1.5rem
+}
+
+.brand-container {
+  height: 4rem;
+}
+
+@import "bootstrap";
+
+@include media-breakpoint-down(lg) {
+  #top-nav-bar {
+    padding-left: $lg-padding;
+    padding-right: $lg-padding;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .nav-search-form {
+    width: 55%;
+    margin-left: 1rem;
+    padding-top: 1.5rem;
+    > .search-field {
+      width: 70% !important;
+    }
+    > .btn {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+    .user-links {
+      padding-top: 1.5rem
+    }
+  }
+  #top-nav-bar {
+    padding-left: $md-padding !important;
+    padding-right: $md-padding !important;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .nav-search-form {
+    width: 100%;
+    margin-left: 0rem !important;
+    padding-top: 0rem !important;
+    > .search-field {
+      width: 100% !important;
+    }
+    > .btn {
+      width: 100%;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+  .user-links {
+    float: none;
+    position: absolute;
+    right: 0.75rem;
+    padding-top: 1.5rem
+  }
+}
+
+.navbar {
+  border-radius: 0rem !important;
+}
