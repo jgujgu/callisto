@@ -29,4 +29,15 @@ Spree::Store.class_eval do
 
   validates_attachment_file_name :hero, matches: [/png\Z/i, /jpe?g\Z/i],
     if: -> { respond_to?(:hero_file_name) }
+
+  #geocoder methods
+  geocoded_by :full_street_address
+  after_validation :geocode
+
+  def full_street_address
+    self.street_address + "," +
+    self.city + "," +
+    self.state + " " +
+    self.zipcode
+  end
 end

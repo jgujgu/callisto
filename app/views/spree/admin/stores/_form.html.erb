@@ -26,6 +26,64 @@
     <% end %>
   </div>
 
+  <div class="ten columns">
+    <%= f.field_container :street_address do %>
+      <%= f.label :street_address, "Street Address" %><br />
+      <%= f.text_field :street_address, :class => 'fullwidth' %>
+      <%= error_message_on :store, :street_address %>
+    <% end %>
+  </div>
+
+  <div class="six columns">
+    <%= f.field_container :city do %>
+      <%= f.label :city, "City" %><br />
+      <%= f.text_field :city, :class => 'fullwidth' %>
+      <%= error_message_on :store, :city %>
+    <% end %>
+  </div>
+
+  <div class="one columns">
+    <%= f.field_container :state do %>
+      <%= f.label :state, "State" %><br />
+      <%= f.text_field :state, :class => 'fullwidth', maxlength: 2 %>
+      <%= error_message_on :store, :state %>
+    <% end %>
+  </div>
+
+  <div class="three columns">
+    <%= f.field_container :zipcode do %>
+      <%= f.label :zipcode, "Zipcode" %><br />
+      <%= f.text_field :zipcode, :class => 'fullwidth', maxlength: 5 %>
+      <%= error_message_on :store, :zipcode %>
+    <% end %>
+  </div>
+
+  <div class="five columns">
+    <%= f.field_container :latitude do %>
+      <%= f.label :latitude, "latitude" %><br />
+      <p>
+        <%= current_store.latitude %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="five columns">
+    <%= f.field_container :longitude do %>
+      <%= f.label :longitude, "longitude" %><br />
+      <p>
+        <%= current_store.longitude %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="ten columns">
+    <script type="text/javascript" charset="utf-8">
+      var storeLat = <%= current_store.latitude %>
+      var storeLon = <%= current_store.longitude %>
+    </script>
+    <div id="admin-store-map" class="store-map"></div>
+  </div>
+
   <div class="four columns">
     <%= f.field_container :mail_from_address do %>
       <%= f.label :mail_from_address, Spree.t(:send_mails_as) %><br />
