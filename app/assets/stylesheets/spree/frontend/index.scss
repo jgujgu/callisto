@@ -7,21 +7,22 @@
   border-right: 1px solid black;
 }
 
-.product-map-widget {
+.store-map-widget {
   padding-left: 0.65rem !important;
   padding-right: 0rem !important;
 }
 
-.product-map-widget--child {
+.store-map-widget--child {
   height: 40vh;
 }
 
+/*it depends*/
 .index-store-carousel-image {
-  height: 80vh;
+  height: 40vh;
 }
 
 .index-product-carousel-image {
-  height: 40vh;
+  height: 80vh;
 }
 
 .thick-border {
@@ -44,7 +45,7 @@
     padding-bottom: 0.1rem;
     border-bottom: 1px solid black;
   }
-  .product-map-widget {
+  .store-map-widget {
     margin-top: 4vh;
     padding-left: 0rem !important;
     padding-right: 0rem !important;
@@ -61,8 +62,8 @@
 }
 
 @include media-breakpoint-down(sm) {
-  .product-map-widget--child {
-    height: 60vh;
+  .store-map-widget--child {
+    height: 50vh;
   }
   .store-hero {
     padding-left: 0rem;
