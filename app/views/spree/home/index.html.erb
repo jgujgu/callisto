@@ -8,10 +8,17 @@
   var markers = <%= raw @markers.to_json %>
 </script>
 
-<div id="store-hero-img" class="col-lg-8 store-hero thin-border-right">
+<div id="product-hero" class="col-lg-8 product-hero thin-border-right">
   <div class="thin-border-bottom">
     <div class="thick-border">
-      <%= render :partial => 'spree/partials/index_product_carousel' %>
+      <div class="col-sm-6 product-hero--child">
+        <%= render :partial => 'spree/partials/index_product_carousel' %>
+        <%= render :partial => 'spree/partials/index_product_carousel' %>
+      </div>
+      <div class="col-sm-6 product-hero--child">
+        <%= render :partial => 'spree/partials/index_product_carousel' %>
+        <%= render :partial => 'spree/partials/index_product_carousel' %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-.store-hero {
+.product-hero {
   height: 80vh;
 }
 
@@ -16,13 +16,18 @@
   height: 40vh;
 }
 
+.product-hero--child {
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+}
+
 /*it depends*/
 .index-store-carousel-image {
   height: 40vh;
 }
 
 .index-product-carousel-image {
-  height: 80vh;
+  height: 40vh;
 }
 
 .thick-border {
@@ -65,7 +70,7 @@
   .store-map-widget--child {
     height: 50vh;
   }
-  .store-hero {
+  .product-hero {
     padding-left: 0rem;
     padding-right: 0rem;
   }
