@@ -1,0 +1,70 @@
+/*
+ * Caption component
+ */
+.caption {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.caption::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  transition: background .35s ease-out;
+}
+
+.caption:hover, .caption.live {
+  &::before {
+    background: rgba(0, 0, 0, .5);
+  }
+  .caption__overlay {
+    opacity: 1;
+  }
+}
+
+.caption__overlay {
+  background: rgba(0, 0, 0, 0.6) none repeat scroll 0% 0%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 80px;
+  opacity: 0;
+  transition: opacity .35s ease-out;
+  h1,h3,a,p {
+    color: white;
+  }
+}
+
+.caption__overlay::before {
+  position: absolute;
+  content: " ";
+  height: 100%;
+}
+
+.caption__overlay__content {
+  margin-top: 2%;
+}
+
+.caption__overlay__view {
+  margin-left: 5px;
+}
+
+.caption__overlay__btn {
+  height: 2em;
+}
+
+.caption__overlay__center {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}

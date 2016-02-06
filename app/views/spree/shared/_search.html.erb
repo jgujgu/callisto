@@ -1,6 +1,7 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%= form_tag spree.products_path, :method => :get, class: "form-inline pull-xs-left nav-search-form", role: "search", id: "nav-search-form" do %>
-  <% placeholder = "Local finds in " + @geocoder_result["city"] + ", " + @geocoder_result["region_code"] + " near " + @geocoder_result["zip_code"]  %>
+  <%#<% placeholder = "Local finds in " + @geocoder_result["city"] + ", " + @geocoder_result["region_code"] + " near " + @geocoder_result["zip_code"]  %>%>
+  <% placeholder = "Local finds jeffrey" %>
   <%= search_field_tag :keywords, params[:keywords], placeholder: placeholder, class: "form-control search-field flea-field" %>
   <%= submit_tag "Find", :name => nil, class: "btn btn-success-outline", id: "btn-search" %>
 <% end %>
