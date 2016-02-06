@@ -40,4 +40,8 @@ Spree::Store.class_eval do
     self.state + " " +
     self.zipcode
   end
+
+  scope :showcases, -> {
+    where(showcase: true)
+  }
 end

@@ -1,26 +1,20 @@
-<style media="screen">
-  #store-product-img {
-    background-image: url(<%= image_url "wax.jpg"%>);
-  }
-</style>
-
-<script type="text/javascript" charset="utf-8">
-  var markers = <%= raw @markers.to_json %>
-</script>
+<%#<script type="text/javascript" charset="utf-8">%>
+  <%#var markers = <%= raw @markers.to_json %>%>
+<%#</script>%>
 
 <div id="product-hero" class="col-lg-8 product-hero">
   <div class="col-xs-6 product-hero--child">
-    <%= render :partial => 'spree/partials/index_product_carousel' %>
-    <%= render :partial => 'spree/partials/index_product_carousel' %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[0] } %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[1] } %>
   </div>
   <div class="col-xs-6 product-hero--child">
-    <%= render :partial => 'spree/partials/index_product_carousel' %>
-    <%= render :partial => 'spree/partials/index_product_carousel' %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[2] } %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[3] } %>
   </div>
 </div>
 
 <div class="col-lg-4 store-map-widget">
-  <%= render :partial => 'spree/partials/index_store_carousel' %>
+  <%= render :partial => 'spree/partials/index_store_carousel', locals: { stores: @stores } %>
   <div id="store-map" class="store-map-widget--child store-map">
   </div>
 </div>

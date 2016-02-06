@@ -2,14 +2,14 @@
   <div class="carousel-inner" role="listbox">
     <div
       class="carousel-item active index-store-carousel-image background-image"
-      style="background-image:url('<%= asset_path(@stores[0][:img]) %>')"
+      style="background-image:url('<%= asset_path(stores[0].hero.url(:large)) %>')"
       data-index="0"
       >
     </div>
-    <% @stores[1..-1].each_with_index do |s,i| %>
+    <% stores[1..-1].each_with_index do |s,i| %>
       <div
         class="carousel-item index-store-carousel-image background-image"
-        style="background-image:url('<%= asset_path(s[:img]) %>')"
+        style="background-image:url('<%= asset_path(s.hero.url(:large)) %>')"
         data-index="<%= i + 1 %>"
         >
       </div>
