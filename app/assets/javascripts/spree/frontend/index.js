@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $indexStoreCarousel = $('#index-store-carousel');
-  $indexProductCarousel = $('#index-product-carousel');
+  $indexProductCarousel = $('.index-product-carousel');
   $indexStoreCarousel.carousel({
     interval: 5000
   });
