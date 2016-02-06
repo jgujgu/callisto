@@ -1,17 +1,19 @@
 <div id="index-store-carousel" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     <div
-      class="carousel-item active index-store-carousel-image background-image"
+      class="carousel-item active index-store-carousel-image background-image caption"
       style="background-image:url('<%= asset_path(stores[0].hero.url(:large)) %>')"
       data-index="0"
       >
+      <%= render :partial => 'spree/partials/store_caption', locals: { store: stores[0] } %>
     </div>
     <% stores[1..-1].each_with_index do |s,i| %>
       <div
-        class="carousel-item index-store-carousel-image background-image"
+        class="carousel-item index-store-carousel-image background-image caption"
         style="background-image:url('<%= asset_path(s.hero.url(:large)) %>')"
         data-index="<%= i + 1 %>"
         >
+        <%= render :partial => 'spree/partials/store_caption', locals: { store: s } %>
       </div>
     <% end %>
   </div>

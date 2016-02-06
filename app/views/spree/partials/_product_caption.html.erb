@@ -1,0 +1,13 @@
+<%= link_to product_path(product) do %>
+  <div class="caption__overlay">
+    <h3 class="caption__overlay__title">
+      <%= product.name %>
+    </h3>
+    <p class="caption__overlay__content">
+      <%= product.description %>
+    </p>
+    <p class="caption__overlay__content">
+      $<%= product.price.to_money.as_us_dollar.to_s %>
+    </p>
+  </div>
+<% end %>
