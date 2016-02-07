@@ -2,7 +2,7 @@
   <div class="carousel-inner" role="listbox">
     <div
       class="carousel-item active index-product-carousel-image background-image caption"
-      style="background-image:url('<%= asset_path(products[0].images.first.mini_url) %>')"
+      style="background-image:url('<%= asset_path(products[0].images.first.attachment.url(:product)) %>')"
       data-index="0"
       >
       <%= render :partial => 'spree/partials/product_caption', locals: { product: products[0] } %>
@@ -10,7 +10,7 @@
     <% products[1..-1].each_with_index do |p,i| %>
       <div
         class="carousel-item index-product-carousel-image background-image caption"
-        style="background-image:url('<%= asset_path(p.images.first.mini_url) %>')"
+        style="background-image:url('<%= asset_path(p.images.first.attachment.url(:product)) %>')"
         data-index="<%= i + 1 %>"
         >
         <%= render :partial => 'spree/partials/product_caption', locals: { product: p } %>
