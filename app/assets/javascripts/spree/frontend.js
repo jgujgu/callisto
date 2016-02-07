@@ -5,6 +5,7 @@
 //= require spree/frontend/cart
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require tether
 //= require bootstrap
 //= require mobile-detect.min

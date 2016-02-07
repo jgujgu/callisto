@@ -4,7 +4,7 @@
       <%= product.name %>
     </h3>
     <p class="caption__overlay__content">
-      <%= product.description %>
+      <%= truncate(product.description, length: 100) %>
     </p>
     <p class="caption__overlay__content">
       $<%= product.price.to_money.as_us_dollar.to_s %>

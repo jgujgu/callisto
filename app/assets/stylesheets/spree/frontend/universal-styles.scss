@@ -22,10 +22,11 @@ div {
   font-size: 1.5em;
 }
 
+$btn-border-radius: 0.08rem;
 .btn {
   border: 2px solid transparent !important;
-  border-radius: 0rem !important;
   user-select: none !important;
+  border-radius: $btn-border-radius !important;
 }
 
 .btn-success-outline  {

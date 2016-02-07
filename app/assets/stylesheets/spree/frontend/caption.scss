@@ -28,7 +28,7 @@
 }
 
 .caption__overlay {
-  background: rgba(0, 0, 0, 0.6) none repeat scroll 0% 0%;
+  background: rgba(255, 255, 255, 0.90) none repeat scroll 0% 0%;
   width: auto;
   height: auto;
   position: absolute;
@@ -40,7 +40,7 @@
   opacity: 0;
   transition: opacity .35s ease-out;
   h1,h3,a,p {
-    color: white;
+    color: black;
   }
 }
 

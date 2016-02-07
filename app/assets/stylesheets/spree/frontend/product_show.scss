@@ -1,0 +1,51 @@
+.tmb-all,.vtmb {
+  display: inline;
+}
+
+.product-section-title {
+  display: none;
+}
+
+.ui-corner-all {
+  border: none;
+}
+
+#product-properties td {
+  padding-right: 0.8rem;
+}
+
+.ui-spinner.ui-widget.ui-widget-content.ui-corner-all {
+  width: 3.5rem;
+  > .flea-field {
+    width: 2rem;
+    margin-left: 0px;
+    text-align: center;
+  }
+}
+
+.price.selling {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.flea-cart-arrow:hover,.flea-cart-arrow:focus  {
+  cursor: pointer;
+  color: black !important;
+}
+
+.property-widget-margin-top {
+  margin-top: 1rem;
+}
+
+select,select:focus {
+  padding-right: 1rem;
+  appearance: none;
+  background-color: transparent;
+  background: url("down-arrow.png") no-repeat right;
+  background-size: 1.5rem 1.5rem;
+  border-top: none;
+  border-right: none;
+  border-bottom: 2px solid black;
+  border-left: none;
+  outline: none;
+}
