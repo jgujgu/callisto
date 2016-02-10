@@ -37,17 +37,46 @@
   margin-top: 1rem;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select {padding-right:18px}
+}
+
 select,select:focus {
-  padding-right: 1rem;
   appearance: none;
-  background-color: transparent;
-  background: url("down-arrow.png") no-repeat right;
-  background-size: 1.5rem 1.5rem;
   border-top: none;
   border-right: none;
   border-bottom: 2px solid black;
   border-left: none;
   outline: none;
+  cursor: pointer;
+}
+
+.select-label {
+  position:relative
+}
+
+.select-label:after {
+  content:"\f063";
+  font-family: "FontAwesome";
+  font-size: 11px;
+  color: black;
+  right:8px;
+  top:8px;
+  padding:0 0 2px;
+  position:absolute;
+  pointer-events:none;
+  right: -1rem;
+  top: 1.25rem;
+}
+
+.select-label:before {
+  content:'';
+  right:4px; top:0px;
+  width:23px; height:18px;
+  background:#fff;
+  position:absolute;
+  pointer-events:none;
+  display:block;
 }
 
 #thumbnails > ul {
