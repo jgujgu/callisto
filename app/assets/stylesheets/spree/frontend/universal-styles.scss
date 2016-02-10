@@ -53,6 +53,12 @@ $btn-border-radius: 0.08rem;
 
 #wrapper {
   margin-top: 6rem;
+  transition: 0.5s;
+}
+
+.long-wrapper {
+  margin-top: 11rem !important;
+  transition: 0.5s;
 }
 
 .footer-bottom {

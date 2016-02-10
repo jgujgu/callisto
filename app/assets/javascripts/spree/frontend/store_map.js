@@ -43,34 +43,37 @@ RichMarkerBuilder = (function(superClass) {
 })(Gmaps.Google.Builders.Marker);
 
 $(document).ready(function() {
-  //user always the last marker
-  var userMarker = markers[markers.length - 1];
+  var windowPath = window.location.pathname;
+  if (windowPath === "/") {
+    //user is always the last marker
+    var userMarker = markers[markers.length - 1];
 
-  var mapOptions = {
-    center: userMarker,
-    zoom: 13,
-    styles: styles,
-  };
+    var mapOptions = {
+      center: userMarker,
+      zoom: 13,
+      styles: styles,
+    };
 
-  handler = Gmaps.build('Google', {
-    builders: {
-      Marker: RichMarkerBuilder
-    }
-  });
+    handler = Gmaps.build('Google', {
+      builders: {
+        Marker: RichMarkerBuilder
+      }
+    });
 
-  handler.buildMap({
-    provider: mapOptions,
-    internal: {id: 'store-map'}
-  },
+    handler.buildMap({
+      provider: mapOptions,
+      internal: {id: 'store-map'}
+    },
 
-  function(){
-    handler.addMarkers(markers);
-  });
-  $indexStoreCarousel.on('slide.bs.carousel', function (e) {
-    var $slideElement = $(e.relatedTarget);
-    var index = $slideElement.data('index');
-    $('.marker-container').removeClass('marker-focused');
-    var $marker = $('#marker-store-' + index.toString());
-    $marker.addClass('marker-focused');
-  });
+    function(){
+      handler.addMarkers(markers);
+    });
+    $indexStoreCarousel.on('slide.bs.carousel', function (e) {
+      var $slideElement = $(e.relatedTarget);
+      var index = $slideElement.data('index');
+      $('.marker-container').removeClass('marker-focused');
+      var $marker = $('#marker-store-' + index.toString());
+      $marker.addClass('marker-focused');
+    });
+  }
 });

@@ -49,3 +49,39 @@ select,select:focus {
   border-left: none;
   outline: none;
 }
+
+#thumbnails > ul {
+  text-align: center;
+  padding-left: 0rem;
+}
+
+.product-description-sm {
+  display: none;
+  padding-left: 0%;
+  padding-right: 0%;
+  text-align: justify;
+}
+
+.product-description-md {
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: justify;
+}
+
+@import "bootstrap";
+
+@include media-breakpoint-down(sm) {
+  .product-title {
+    text-align: center;
+  }
+
+  .product-description-md {
+    display: none;
+  }
+
+  .product-description-sm {
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+}

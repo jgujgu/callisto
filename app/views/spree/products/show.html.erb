@@ -11,10 +11,24 @@
         <div id="thumbnails" data-hook>
           <%= render :partial => 'thumbnails' %>
         </div>
+
+        <div id="product-description-md" data-hook="product_description" class="product-description-md">
+          <div itemprop="description" data-hook="description">
+            <strong>Description:</strong>
+            <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-6">
         <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
+
+        <div id="product-description-sm" data-hook="product_description" class="product-description-sm">
+          <div itemprop="description" data-hook="description">
+            <strong>Description:</strong>
+            <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+          </div>
+        </div>
 
         <div data-hook="product_properties">
           <%= render :partial => 'properties' %>
@@ -34,15 +48,6 @@
     <div class="columns ten omega" data-hook="product_right_part">
       <div class="row" data-hook="product_right_part_wrap">
 
-        <div id="product-description" data-hook="product_description">
-
-
-          <div itemprop="description" data-hook="description">
-            <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
-          </div>
-
-
-        </div>
 
         <%= render :partial => 'taxons' %>
 
