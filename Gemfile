@@ -26,6 +26,7 @@ gem 'geocoder'
 gem 'unicorn'
 gem 'lodash-rails'
 gem 'gmaps4rails'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'
