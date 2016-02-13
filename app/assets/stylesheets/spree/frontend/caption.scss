@@ -18,7 +18,7 @@
   transition: background .35s ease-out;
 }
 
-.caption:hover, .caption.live {
+.caption:hover, .caption:focus, .caption.live {
   &::before {
     background: rgba(0, 0, 0, .5);
   }

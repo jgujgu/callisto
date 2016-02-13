@@ -45,12 +45,15 @@ RichMarkerBuilder = (function(superClass) {
 $(document).ready(function() {
   var windowPath = window.location.pathname;
   if (windowPath === "/") {
+    var lastIndex = markers.length - 1;
     //user is always the last marker
-    var userMarker = markers[markers.length - 1];
+    var userMarker = markers[lastIndex];
+    var defaultZoom = 13;
+    var closeupZoom = 15;
 
     var mapOptions = {
       center: userMarker,
-      zoom: 13,
+      zoom: defaultZoom,
       styles: styles,
     };
 
@@ -66,14 +69,33 @@ $(document).ready(function() {
     },
 
     function(){
-      handler.addMarkers(markers);
+      _.each(markers, function(marker, index) {
+        if (index === lastIndex) {
+          handler.addMarker(marker);
+        } else {
+          var googleMarker = handler.addMarker(marker);
+          google.maps.event.addListener(googleMarker.serviceObject, 'click', function() {
+            handler.getMap().setZoom(closeupZoom);
+            handler.getMap().setCenter(googleMarker.serviceObject.getPosition());
+            $indexStoreCarousel.carousel(marker.id);
+            updateMarkers(marker.id);
+          });
+        }
+      });
     });
+
+    var $indexStoreCarousel = $('#index-store-carousel');
+
     $indexStoreCarousel.on('slide.bs.carousel', function (e) {
       var $slideElement = $(e.relatedTarget);
       var index = $slideElement.data('index');
-      $('.marker-container').removeClass('marker-focused');
-      var $marker = $('#marker-store-' + index.toString());
-      $marker.addClass('marker-focused');
+      updateMarkers(index);
     });
+  }
+
+  function updateMarkers(index) {
+    var $marker = $('#marker-store-' + index);
+    $('.marker-container').removeClass('marker-focused');
+    $marker.addClass('marker-focused');
   }
 });

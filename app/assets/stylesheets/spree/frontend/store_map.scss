@@ -12,6 +12,7 @@ $transition-time: 0.5s;
   background-color: black;
   border-radius: 0.1rem;
   transition: $transition-time;
+  cursor: pointer;
 }
 
 .marker-user {
