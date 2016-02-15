@@ -1,4 +1,4 @@
-class MapMarkerHelper
+class Spree::MapMarkerHelper
   class << self
     def getMarkers(stores, geocoder_result)
       user_marker = Gmaps4rails.build_markers([geocoder_result]) do |gr, marker|

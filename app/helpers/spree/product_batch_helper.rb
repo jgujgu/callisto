@@ -1,4 +1,4 @@
-class ProductBatchHelper
+class Spree::ProductBatchHelper
   class << self
     def get_batches(stores, products)
       products = @stores.map do |s|
