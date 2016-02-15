@@ -3,9 +3,11 @@ $(document).ready(function() {
   var $minus = $("#qty-minus");
 
   $plus.click(function(e) {
+    e.preventDefault();
     increment();
   });
   $minus.click(function(e) {
+    e.preventDefault();
     decrement();
   });
 });
