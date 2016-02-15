@@ -51,7 +51,9 @@
 
         <div class="add-to-cart">
           <div class="property-widget-margin-top">
-            <%= text_field_tag :quantity, 1, :class => 'title spinner flea-field', :min => 1, readonly: true, maxlength: 2, onfocus: "this.blur()" %>
+            <i id="qty-minus" class="fa fa-minus qty-minus"></i>
+            <%= number_field_tag :quantity, 1, :class => 'title flea-field', :min => 1, max: 99 %>
+            <i id="qty-plus" class="fa fa-plus qty-plus"></i>
           </div>
           <div class="property-widget-margin-top">
             <%= button_tag :class => 'large primary btn btn-success-outline', :id => 'add-to-cart-button', :type => :submit do %>
