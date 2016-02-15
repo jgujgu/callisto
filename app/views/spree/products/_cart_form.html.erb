@@ -52,7 +52,7 @@
         <div class="add-to-cart">
           <div class="property-widget-margin-top">
             <i id="qty-minus" class="fa fa-minus qty-minus"></i>
-            <%= number_field_tag :quantity, 1, :class => 'title flea-field', :min => 1, max: 99 %>
+            <%= number_field_tag :quantity, 1, :class => 'title flea-field', :min => 1, max: 99, onfocus: "this.blur()" %>
             <i id="qty-plus" class="fa fa-plus qty-plus"></i>
           </div>
           <div class="property-widget-margin-top">
