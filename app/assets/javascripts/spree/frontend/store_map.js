@@ -46,8 +46,7 @@ $(document).ready(function() {
   var windowPath = window.location.pathname;
   if (windowPath === "/") {
     var lastIndex = markers.length - 1;
-    //user is always the last marker
-    var userMarker = markers[lastIndex];
+    var userMarker = markers[lastIndex]; //user is always the last marker
     var defaultZoom = 13;
     var closeupZoom = 15;
 

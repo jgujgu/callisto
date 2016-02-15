@@ -72,21 +72,22 @@ $btn-border-radius: 0.08rem;
   background-size: cover;
 }
 
-@include media-breakpoint-down(lg) {
-  body {
-    background-color: pink !important;
-  }
-}
-@include media-breakpoint-down(md) {
-  body {
-    background-color: red !important;
-  }
-}
-@include media-breakpoint-down(sm) {
-  body {
-    background-color: lawngreen !important;
-  }
-}
+/*for debugging breakpoints*/
+/*@include media-breakpoint-down(lg) {*/
+  /*body {*/
+    /*background-color: pink !important;*/
+  /*}*/
+/*}*/
+/*@include media-breakpoint-down(md) {*/
+  /*body {*/
+    /*background-color: red !important;*/
+  /*}*/
+/*}*/
+/*@include media-breakpoint-down(sm) {*/
+  /*body {*/
+    /*background-color: lawngreen !important;*/
+  /*}*/
+/*}*/
 
 /*#content {*/
   /*background-color: lightpink;*/
