@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
       @geocoder_result = Geocoder.search(@ip_address).first.data
     rescue
       @geocoder_result = {
-        latitude: 39.7393251,
-        longitude: -104.9869956,
-        city: "Denver",
-        region_code: "CO",
-        zip_code: "80203"
+        "latitude" => 39.7393251,
+        "longitude" => -104.9869956,
+        "city" => "Denver",
+        "region_code" => "CO",
+        "zip_code" => "80203"
       }
     end
   end
