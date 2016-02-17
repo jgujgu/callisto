@@ -15,4 +15,5 @@
 //= require spree/backend/spree-select2
 //= require lodash
 //= require gmaps/google
+//= require maskedinput.min
 //= require_tree ./backend

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204021958) do
+ActiveRecord::Schema.define(version: 20160217043156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,6 +169,10 @@ ActiveRecord::Schema.define(version: 20160204021958) do
     t.integer  "stock_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "spree_day_types", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "spree_inventory_units", force: :cascade do |t|
@@ -961,6 +965,13 @@ ActiveRecord::Schema.define(version: 20160204021958) do
   add_index "spree_store_credits", ["type_id"], name: "index_spree_store_credits_on_type_id", using: :btree
   add_index "spree_store_credits", ["user_id"], name: "index_spree_store_credits_on_user_id", using: :btree
 
+  create_table "spree_store_day_types", force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "day_type_id"
+    t.time    "opening_time", default: '2000-01-01 04:17:24'
+    t.time    "closing_time", default: '2000-01-01 04:17:24'
+  end
+
   create_table "spree_store_payment_methods", force: :cascade do |t|
     t.integer  "store_id",          null: false
     t.integer  "payment_method_id", null: false
@@ -990,7 +1001,7 @@ ActiveRecord::Schema.define(version: 20160204021958) do
     t.string   "mail_from_address"
     t.string   "default_currency"
     t.string   "code"
-    t.boolean  "default",           default: false, null: false
+    t.boolean  "default",           default: false,        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "logo_file_name"
@@ -1003,6 +1014,7 @@ ActiveRecord::Schema.define(version: 20160204021958) do
     t.string   "zipcode"
     t.string   "description"
     t.boolean  "showcase",          default: false
+    t.string   "phone_number",      default: "9999999999"
   end
 
   add_index "spree_stores", ["code"], name: "index_spree_stores_on_code", using: :btree

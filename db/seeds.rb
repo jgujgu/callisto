@@ -9,3 +9,18 @@
 
 Spree::Core::Engine.load_seed if defined?(Spree::Core)
 Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
+
+class CustomSeeds
+  class << self
+    def call
+      create_day_types
+    end
+
+    def create_day_types
+      days = ["Weekdays","Weekends","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+      days.each { |d|  Spree::DayType.create(name: d) }
+    end
+  end
+end
+
+CustomSeeds.call
