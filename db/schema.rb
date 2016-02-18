@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217043156) do
+ActiveRecord::Schema.define(version: 20160218152311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,8 +171,11 @@ ActiveRecord::Schema.define(version: 20160217043156) do
     t.datetime "updated_at"
   end
 
-  create_table "spree_day_types", force: :cascade do |t|
-    t.string "name"
+  create_table "spree_day_hours", force: :cascade do |t|
+    t.integer "store_id"
+    t.time    "opening_time", default: '2000-01-01 04:17:24'
+    t.time    "closing_time", default: '2000-01-01 04:17:24'
+    t.string  "day_name"
   end
 
   create_table "spree_inventory_units", force: :cascade do |t|
@@ -964,13 +967,6 @@ ActiveRecord::Schema.define(version: 20160217043156) do
   add_index "spree_store_credits", ["deleted_at"], name: "index_spree_store_credits_on_deleted_at", using: :btree
   add_index "spree_store_credits", ["type_id"], name: "index_spree_store_credits_on_type_id", using: :btree
   add_index "spree_store_credits", ["user_id"], name: "index_spree_store_credits_on_user_id", using: :btree
-
-  create_table "spree_store_day_types", force: :cascade do |t|
-    t.integer "store_id"
-    t.integer "day_type_id"
-    t.time    "opening_time", default: '2000-01-01 04:17:24'
-    t.time    "closing_time", default: '2000-01-01 04:17:24'
-  end
 
   create_table "spree_store_payment_methods", force: :cascade do |t|
     t.integer  "store_id",          null: false
