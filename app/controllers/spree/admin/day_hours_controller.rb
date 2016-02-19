@@ -17,7 +17,4 @@ class Spree::Admin::DayHoursController < Spree::Admin::ResourceController
     @day_hour = current_store.day_hours.update(params[:id], permitted_resource_params)
     redirect_to admin_day_hours_path
   end
-  def destroy
-
-  end
 end
