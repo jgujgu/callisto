@@ -7,6 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require spree/backend
+//= require gmaps/google
+//= require maskedinput.min
 
 //= require_tree .
 //= require spree/backend/solidus_multi_domain
