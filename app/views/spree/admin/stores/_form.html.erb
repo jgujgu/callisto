@@ -82,14 +82,6 @@
     <% end %>
   </div>
 
-  <div class="ten columns">
-    <%= f.field_container :phone_number do %>
-      <%= f.label :phone_number, "Phone Number" %><br />
-      <%= f.text_field :phone_number, :class => 'fullwidth', maxlength: 14 %>
-      <%= error_message_on :store, :phone_number %>
-    <% end %>
-  </div>
-
   <div class="five columns">
     <%= f.field_container :latitude do %>
       <%= f.label :latitude, "latitude" %><br />

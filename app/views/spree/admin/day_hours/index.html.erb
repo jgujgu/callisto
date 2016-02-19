@@ -1,0 +1,47 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:day_hours) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <% if can?(:create, Spree::DayHour) %>
+    <li>
+      <%= button_link_to Spree.t(:new_day_hour), new_object_url,  :icon => 'icon-plus', :id => 'admin_new_admin_day_hour_link' %>
+    </li>
+  <% end %>
+<% end %>
+
+<% if @day_hours.empty? %>
+  <h3>Please add days and hours here.</h3>
+  <% if can?(:create, Spree::DayHour) %>
+    <%= button_link_to Spree.t(:new_day_hour), new_object_url,  :icon => 'icon-plus', :id => 'admin_new_admin_day_hour_link' %>
+  <% end %>
+<% else %>
+  <table class="index" id='listing_day_hours'>
+    <thead>
+      <th><%= Spree.t(:day_name) %></th>
+      <th><%= Spree.t(:opening_time) %></th>
+      <th><%= Spree.t(:closing_time) %></th>
+      <th data-hook="admin_day_hours_index_header_actions" class="actions"></th>
+    </thead>
+    <tbody>
+      <% @day_hours.each do |day_hour|%>
+        <tr id="<%= spree_dom_id day_hour %>"
+          data-hook="admin_day_hours_index_rows" class="<%= cycle('odd', 'even') %>">
+          <td><%= day_hour.day_name %></td>
+          <td><%= day_hour.opening_time %></td>
+          <td><%= day_hour.closing_time %></td>
+          <td data-hook="admin_day_hours_index_row_actions" class="actions">
+            <% if can? :update, day_hour %>
+              <%= link_to_edit day_hour, :no_text => true %>
+            <% end %>
+            <% if can? :destroy, day_hour %>
+              <%= link_to_delet day_hour, :no_text => true %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
