@@ -1,8 +1,8 @@
 <div data-hook="admin_day_hour_form_fields">
-  <div class="alpha two columns">
+  <div class="alpha three columns">
     <%= f.field_container :name do %>
       <%= f.label :day_name, Spree.t(:day_name) %><br />
-      <%= f.text_field :day_name, :class => 'fullwidth' %>
+      <%= f.select :day_name, options_for_select(possible_days.map{|d| [d,d]}), :class => 'fullwidth' %>
       <%= error_message_on :day_hour, :day_name %>
     <% end %>
   </div>

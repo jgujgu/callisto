@@ -1,5 +1,5 @@
 class Spree::Admin::DayHoursController < Spree::Admin::ResourceController
-  helper_method :time_format
+  helper_method :time_format, :possible_days
 
   def index
     @day_hours = current_store.day_hours.all.order(:order)
@@ -29,5 +29,32 @@ class Spree::Admin::DayHoursController < Spree::Admin::ResourceController
 
   def time_format
     "%I:%M %p"
+  end
+
+  def possible_days
+    [
+      'Weekdays',
+      'Weekends',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Holidays',
+      'Memorial Day',
+      '4th of July',
+      'Bastille Day',
+      'Labor Day',
+      'Thanksgiving',
+      'Christmas',
+      'Hanukkah',
+      "New Year's Eve",
+      "New Year's Day",
+      'Easter',
+      'Kwanza',
+      'Chinese New Year',
+      "Valentine's Day",
+      "St. Patrick's Day",
+    ]
   end
 end
