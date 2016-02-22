@@ -1,0 +1,7 @@
+<%= link_to root_url(subdomain: store.code) do %>
+  <div
+    class="index-store-carousel-image background-image caption"
+    style="background-image:url('<%= asset_path(store.hero.url(:large)) %>')"
+    ></div>
+  <%= render :partial => 'spree/partials/store_caption', locals: { store: store } %>
+<% end %>

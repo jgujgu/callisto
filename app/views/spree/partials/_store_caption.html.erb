@@ -1,16 +1,14 @@
-<%= link_to root_url(subdomain: store.code) do %>
-  <div class="caption__overlay">
-    <h3 class="caption__overlay__title">
-      <%= store.name %>
-    </h3>
-    <p class="caption__overlay__content">
-      <%= store.description %>
-    </p>
-    <p class="caption__overlay__content">
-      <%= store.street_address %></br>
-      <%= store.city %>,
-      <%= store.state %>
-      <%= store.zipcode %>
-    </p>
-  </div>
-<% end %>
+<div class="flea-card__caption">
+  <h3 class="caption__overlay__title">
+    <%= store.name %>
+  </h3>
+  <p class="caption__overlay__content">
+    <%= store.description %>
+  </p>
+  <p class="caption__overlay__content">
+    <%= store.street_address %></br>
+    <%= store.city %>,
+    <%= store.state %>
+    <%= store.zipcode %>
+  </p>
+</div>

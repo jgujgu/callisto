@@ -1,13 +1,8 @@
-<%= link_to product_url(product, subdomain: product.stores.first.code) do %>
-  <div class="caption__overlay">
-    <h3 class="caption__overlay__title">
-      <%= product.name %>
-    </h3>
-    <p class="caption__overlay__content">
-      <%= truncate(product.description, length: 100) %>
-    </p>
-    <p class="caption__overlay__content">
-      $<%= product.price.to_money.as_us_dollar.to_s %>
-    </p>
-  </div>
-<% end %>
+<div class="flea-card__caption">
+  <h3 class="caption__overlay__title">
+    <%= product.name %>
+  </h3>
+  <p class="caption__overlay__content">
+    $<%= product.price.to_money.as_us_dollar.to_s %>
+  </p>
+</div>
