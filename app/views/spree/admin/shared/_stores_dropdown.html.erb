@@ -1,0 +1,4 @@
+<%= label_tag nil, Spree.t(:store) %>
+<%= f.field_container :store_id do %>
+  <%= select("user", "store_id", Spree::Store.all.map {|s| [ s.name, s.id ] }, { include_blank: true }) %>
+<% end %>

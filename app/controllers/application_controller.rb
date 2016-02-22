@@ -4,6 +4,29 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :geocode_user
+  before_action :set_current_admin_spree_user_store
+
+  def set_current_admin_spree_user_store
+    if store_owner_signed_in?
+      @current_store = current_spree_user.store
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    if store_owner_signed_in?
+      @current_store = current_spree_user.store
+      return admin_orders_path
+    end
+    return root_path
+  end
+
+  def store_owner_signed_in?
+    admin_path? && current_spree_user && current_spree_user.store
+  end
+
+  def admin_path?
+    request.original_fullpath.split("/")[1] == "admin"
+  end
 
   def geocode_user
     if Rails.env.development? || Rails.env.test?
