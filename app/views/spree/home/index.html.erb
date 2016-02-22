@@ -4,12 +4,12 @@
 
 <div id="product-hero" class="col-lg-8 product-hero">
   <div class="col-xs-6 product-hero--child">
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[0], left: true } %>
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[1], left: true } %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[0] } %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[1] } %>
   </div>
   <div class="col-xs-6 product-hero--child">
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[2], left: false } %>
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[3], left: false } %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[2] } %>
+    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[3] } %>
   </div>
 </div>
 

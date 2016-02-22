@@ -28,24 +28,15 @@
   }
 }
 
-$transition-time: 1s;
-
-.carousel-control.right,.carousel-control.left {
-  transition: $transition-time;
-  background-image: none !important;
+.carousel-control.right {
+  background-image: none;
   background-repeat: none;
 }
 
-.carousel-control.right:hover {
-  transition: $transition-time;
-  background-image: linear-gradient(to right, rgba(55, 252, 224, 0.0001) 0%, rgba(55, 252, 224, 0.5) 100%) !important;
+.carousel-control.left {
+  background-image: none;
+  background-repeat: none;
 }
-
-.carousel-control.left:hover {
-  transition: $transition-time;
-  background-image: linear-gradient(to left, rgba(55, 252, 224, 0.0001) 0%, rgba(55, 252, 224, 0.5) 100%) !important;
-}
-
 
 .carousel-inner {
   border-radius: 0.1rem;
