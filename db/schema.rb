@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221223432) do
+ActiveRecord::Schema.define(version: 20160222062653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20160221223432) do
     t.time    "opening_time", default: '2000-01-01 04:17:24'
     t.time    "closing_time", default: '2000-01-01 04:17:24'
     t.string  "day_name"
+    t.integer "order",        default: 1
   end
 
   create_table "spree_inventory_units", force: :cascade do |t|

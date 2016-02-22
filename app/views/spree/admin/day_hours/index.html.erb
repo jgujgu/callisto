@@ -30,8 +30,8 @@
         <tr id="<%= spree_dom_id day_hour %>"
           data-hook="admin_day_hours_index_rows" class="<%= cycle('odd', 'even') %>">
           <td><%= day_hour.day_name %></td>
-          <td><%= day_hour.opening_time %></td>
-          <td><%= day_hour.closing_time %></td>
+          <td><%= day_hour.opening_time.strftime(time_format) %></td>
+          <td><%= day_hour.closing_time.strftime(time_format) %></td>
           <td data-hook="admin_day_hours_index_row_actions" class="actions">
             <% if can? :update, day_hour %>
               <%= link_to_edit day_hour, :no_text => true %>
