@@ -1,4 +1,7 @@
 $brand-teal: #37fce0;
+$black: #222222;
+$light-grey: #F9F9F7;
+$light-beige: #EFEFEB;
 $xl-padding: 16%;
 $lg-padding: 8%;
 $md-padding: 6%;
@@ -9,7 +12,7 @@ $sm-padding: 0%;
   right: 0px;
   left: 0px;
   z-index: 1030;
-  background-color: white;
+  background-color: $light-grey;
   padding-top: 0rem;
   padding-bottom: 0rem;
   padding-left: $xl-padding;
@@ -47,7 +50,7 @@ $sm-padding: 0%;
     border-width: 0px 0px 2px;
     border-style: none none solid;
     border-radius: 0rem;
-    border-color: black;
+    border-color: $black;
   }
   > .btn {
     background-color: transparent;
@@ -58,7 +61,7 @@ $sm-padding: 0%;
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: black !important;
+  color: $black !important;
 }
 
 .navbar-light .navbar-nav .nav-link.full {

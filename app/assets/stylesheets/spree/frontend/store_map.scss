@@ -1,5 +1,6 @@
 $brand-teal: #37fce0;
 $transition-time: 0.5s;
+$black: #222222;
 
 .marker-focused {
   background-color: $brand-teal !important;
@@ -9,14 +10,14 @@ $transition-time: 0.5s;
 .marker-container.brand-square {
   height: 1.5em;
   width: 1.5em;
-  background-color: black;
+  background-color: $black;
   border-radius: 0.1rem;
   transition: $transition-time;
   cursor: pointer;
 }
 
 .marker-user {
-  color: black;
+  color: $black;
 }
 
 .store-map {

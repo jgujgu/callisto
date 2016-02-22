@@ -1,11 +1,12 @@
 $brand-teal: #37fce0;
+$black: #222222;
 
 .brand-container {
   $flea-size: 2.15em;
   $secondary-text-size: .55em;
   > .brand-flea {
     font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: black;
+    color: $black;
     font-size: $flea-size;
   }
   > .brand-market {
