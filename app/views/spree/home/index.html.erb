@@ -3,19 +3,25 @@
 </script>
 
 <div id="product-hero" class="col-lg-8 product-hero">
-  <div class="col-xs-6 product-hero--child">
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[0] } %>
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[1] } %>
-  </div>
-  <div class="col-xs-6 product-hero--child">
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[2] } %>
-    <%= render :partial => 'spree/partials/index_product_carousel', locals: { products: @product_batches[3] } %>
-  </div>
+  <% 0.upto(@stores.length - 1) do |i| %>
+    <div class="carousel-item-container">
+      <div class="col-xs-6 product-hero--child">
+        <%= render :partial => 'spree/partials/flea_product_card', locals: { product: @product_batches[0][i] } %>
+        <%= render :partial => 'spree/partials/flea_product_card', locals: { product: @product_batches[1][i] } %>
+      </div>
+      <div class="col-xs-6 product-hero--child">
+        <%= render :partial => 'spree/partials/flea_product_card', locals: { product: @product_batches[2][i] } %>
+        <%= render :partial => 'spree/partials/flea_product_card', locals: { product: @product_batches[3][i] } %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="col-lg-4 store-map-widget">
-  <%= render :partial => 'spree/partials/index_store_carousel', locals: { stores: @stores } %>
-  <div id="store-map" class="store-map-widget--child store-map">
+  <div id="store-hero" class="store-map-widget--child store-hero">
+    <% @stores.each do |s| %>
+      <%= render :partial => 'spree/partials/flea_store_card', locals: { store: s } %>
+    <% end %>
   </div>
+  <div id="store-map" class="store-map-widget--child store-map"></div>
 </div>
-

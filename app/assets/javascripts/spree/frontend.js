@@ -11,4 +11,5 @@
 //= require mobile-detect.min
 //= require lodash
 //= require gmaps/google
+//= require jquery.slick
 //= require_tree .

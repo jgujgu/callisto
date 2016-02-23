@@ -1,7 +1,26 @@
-<%= link_to root_url(subdomain: store.code) do %>
-  <div
-    class="index-store-carousel-image background-image caption"
-    style="background-image:url('<%= asset_path(store.hero.url(:large)) %>')"
-    ></div>
-  <%= render :partial => 'spree/partials/store_caption', locals: { store: store } %>
-<% end %>
+<div class="flea-card">
+  <%= link_to root_url(subdomain: store.code) do %>
+    <div
+      class="flea-card--image background-image"
+      style="background-image:url('<%= asset_path(store.hero.url(:large)) %>')"
+      ></div>
+    <div class="flea-card--caption">
+      <div class="flea-card--caption__left">
+        <p>
+          <%= store.name %>
+        </p>
+        <p>
+          <%= store.street_address %></br>
+          <%= store.city %>,
+          <%= store.state %>
+          <%= store.zipcode %>
+        </p>
+      </div>
+      <div class="pull-right flea-card--caption__right">
+        <p>
+          <%= store.description %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

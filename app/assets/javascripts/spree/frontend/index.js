@@ -1,12 +1,22 @@
 $(document).ready(function() {
-  var $indexStoreCarousel = $('#index-store-carousel');
-  var $indexProductCarousel = $('.index-product-carousel');
-  $indexStoreCarousel.carousel({
-    interval: 5000
+  $('#product-hero').slick({
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    asNavFor: '#store-hero',
+    cssEase: 'linear'
   });
-  $indexStoreCarousel.on('slide.bs.carousel', function (e) {
-    var $slideElement = $(e.relatedTarget);
-    var index = $slideElement.data('index');
-    $indexProductCarousel.carousel(parseInt(index));
+
+  $('#store-hero').slick({
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    fade: true,
+    asNavFor: '#product-hero',
+    cssEase: 'linear'
   });
 });

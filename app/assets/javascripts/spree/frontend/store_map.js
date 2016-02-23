@@ -76,6 +76,7 @@ $(document).ready(function() {
           google.maps.event.addListener(googleMarker.serviceObject, 'click', function() {
             handler.getMap().setZoom(closeupZoom);
             handler.getMap().setCenter(googleMarker.serviceObject.getPosition());
+            $('#product-hero').slick('slickGoTo', marker.id);
             $indexStoreCarousel.carousel(marker.id);
             updateMarkers(marker.id);
           });
@@ -83,12 +84,8 @@ $(document).ready(function() {
       });
     });
 
-    var $indexStoreCarousel = $('#index-store-carousel');
-
-    $indexStoreCarousel.on('slide.bs.carousel', function (e) {
-      var $slideElement = $(e.relatedTarget);
-      var index = $slideElement.data('index');
-      updateMarkers(index);
+    $('#product-hero').on('afterChange', function(event, slick, currentSlide, nextSlide){
+      updateMarkers(currentSlide);
     });
   }
 
