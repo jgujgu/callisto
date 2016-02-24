@@ -6,6 +6,7 @@ $grey: #888888;
 $black: #222222;
 $blue: #0192B5;
 $btn-border-radius: 0.08rem;
+$red: #fc3753;
 
 html {
   overflow-y:scroll;
@@ -42,6 +43,19 @@ div {
   color: $black !important;
   border-color: $brand-teal !important;
   transition: $transition-time;
+}
+
+.btn-danger-outline  {
+  color: $red !important;
+  border-color: $red !important;
+  transition: $transition-time;
+}
+
+.btn-danger-outline:hover, .btn-danger-outline:focus  {
+  color: white !important;
+  background-color: $red !important;
+  transition: $transition-time;
+  outline: none !important;
 }
 
 .btn-success-outline:hover, .btn-success-outline:focus  {
