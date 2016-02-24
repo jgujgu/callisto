@@ -133,3 +133,7 @@ $sm-padding: 0%;
 .navbar {
   border-radius: 0rem !important;
 }
+
+.nav-item > .nav-link.toggle-search {
+  display: none;
+}

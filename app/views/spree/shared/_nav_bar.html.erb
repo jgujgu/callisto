@@ -5,6 +5,11 @@
   <!-- navbar-search -->
   <%= render :partial => 'spree/shared/search' %>
   <ul class="nav navbar-nav pull-xs-right user-links">
+    <li class="nav-item">
+      <a href="#" class="nav-link toggle-search" id="toggle-search">
+        <i class="fa fa-search"></i>
+      </a>
+    </li>
     <li id="link-to-cart" class="nav-item" data-hook>
       <noscript>
         <%= link_to Spree.t(:cart), '/cart', class: "nav-link" %>
