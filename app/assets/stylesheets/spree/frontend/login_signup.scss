@@ -1,0 +1,33 @@
+$red: #fc3753;
+$red-dark: #e10323;
+$brand-teal: #37fce0;
+
+.login .flea-field {
+  width: 100%
+}
+
+.login .btn {
+  width: 100%
+}
+
+.forgot-password {
+  color: $red !important;
+}
+
+.forgot-password:focus, .forgot-password:hover {
+  color: $red-dark !important;
+}
+
+.login {
+  margin-top: 2%;
+}
+
+.login h6 {
+  font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: $brand-teal;
+  font-size: 1.5rem;
+}
+
+.login label {
+  font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}

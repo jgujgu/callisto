@@ -1,4 +1,5 @@
 $brand-teal: #37fce0;
+$brand-teal-dark: #03e1c2;
 $transition-time: 0.25s;
 $light-beige: #EFEFEB;
 $light-grey: #F9F9F7;
@@ -7,6 +8,7 @@ $black: #222222;
 $blue: #0192B5;
 $btn-border-radius: 0.08rem;
 $red: #fc3753;
+$red-dark: #e10323;
 
 html {
   overflow-y:scroll;
@@ -93,6 +95,20 @@ div {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+a {
+  color: $brand-teal !important;
+  transition: $transition-time;
+}
+
+a:hover, a:focus {
+  color: $brand-teal-dark !important;
+  transition: $transition-time;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*for debugging breakpoints*/
