@@ -1,4 +1,4 @@
-<div data-hook="account_summary" class="account-summary col-md-9 col-md-offset-2">
+<div data-hook="account_summary" class="account-summary col-lg-9 col-lg-offset-2">
   <h3><%= accurate_title %></h3>
   <dl id="user-info">
     <dt><%= Spree.t(:email) %></dt>
@@ -6,11 +6,11 @@
   </dl>
 </div>
 
-<div data-hook="account_my_orders" class="account-my-orders col-md-9 col-md-offset-2">
+<div data-hook="account_my_orders" class="account-my-orders col-lg-9 col-lg-offset-2">
 
   <h3><%= Spree.t(:my_orders) %></h3>
   <% if @orders.present? %>
-    <table class="order-summary col-xs-12">
+    <table class="order-summary col-xs-12 table table-hover">
       <thead>
         <tr>
           <th class="order-number"><%= I18n.t(:number, :scope => 'activerecord.attributes.spree/order') %></th>

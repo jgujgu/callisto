@@ -12,17 +12,21 @@ if (md.phone()) {
     var $keywords = $("#keywords");
     var $wrapper = $("#wrapper");
     var $toggleSearch = $("#toggle-search");
-
     searchPlaceholder = $keywords.attr("placeholder");
-    $wrapper.addClass("long-wrapper");
-    $toggleSearch.show();
     $toggleSearch.css({display: "block"});
-    $toggleSearch.addClass("full");
+    $toggleSearch.show();
 
 
-    var $timeout = setTimeout(function() {
+    var windowPath = window.location.pathname;
+    if (windowPath === "/") {
+      $toggleSearch.addClass("full");
+      showSearch($navSearchForm, $btnSearch, $keywords, $wrapper);
+      var $timeout = setTimeout(function() {
+        hideSearch($navSearchForm, $btnSearch, $keywords, $wrapper, $toggleSearch);
+      },hideSeconds);
+    } else {
       hideSearch($navSearchForm, $btnSearch, $keywords, $wrapper, $toggleSearch);
-    },hideSeconds);
+    }
 
     $keywords.focus(function() {
       clearTimeout($timeout);
@@ -32,8 +36,8 @@ if (md.phone()) {
       e.preventDefault();
       if (searchToggle) {
         searchToggle = false;
-        $navSearchForm.removeClass("shrunken-search");
         $toggleSearch.addClass("full");
+        $navSearchForm.removeClass("shrunken-search");
         setTimeout(function() {
           showSearch($navSearchForm, $btnSearch, $keywords, $wrapper);
         },showSeconds);
