@@ -140,6 +140,10 @@ GEM
     highline (1.6.21)
     htmlentities (4.3.4)
     i18n (0.7.0)
+    icheck-rails (1.0.2.2)
+      jquery-rails
+      rails (>= 3.1.0)
+      sass-rails
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -396,6 +400,7 @@ DEPENDENCIES
   font-awesome-sass
   geocoder
   gmaps4rails
+  icheck-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-slick-rails

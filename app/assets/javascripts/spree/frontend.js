@@ -12,4 +12,5 @@
 //= require lodash
 //= require gmaps/google
 //= require jquery.slick
+//= require 'icheck'
 //= require_tree .

@@ -6,6 +6,23 @@
   font-family: 'Raleway Bold';
   src: font-url('Raleway-Bold.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Raleway Bold Italic';
+  src: font-url('Raleway-BoldItalic.ttf') format('truetype');
+}
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "universal-styles";
+@import "brand";
+@import "nav";
+@import "index";
+@import "store_map";
+@import "carousel";
+@import "product_show";
+@import "orders_form";
+@import "login_signup";
+@import "order";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";

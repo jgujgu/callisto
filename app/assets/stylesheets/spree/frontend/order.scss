@@ -1,3 +1,30 @@
+$brand-teal: #37fce0;
 .order h6 {
   font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.select-label.country-state {
+  width: 100%;
+}
+.select-label.country-state > select {
+  width: 50%;
+}
+.select-label.country-state::after {
+  left: 46% !important;
+  top: 0rem !important;
+}
+
+.billing-fieldset-wrapper input, .shipping-fieldset-wrapper input {
+  width: 50%;
+}
+
+.shipping-fieldset-wrapper #order_use_billing {
+  width: inherit;
+}
+.progress-steps {
+  font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.current, .completed {
+  color: $brand-teal;
 }
