@@ -1,5 +1,6 @@
 $light-grey: #F9F9F7;
 $light-beige: #EFEFEB;
+$grey: #888888;
 
 .tmb-all,.vtmb {
   display: inline;
@@ -25,12 +26,12 @@ $light-beige: #EFEFEB;
 }
 
 input[type='number'] {
-    -moz-appearance:textfield;
+  -moz-appearance:textfield;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 .qty-plus, .qty-minus {
@@ -61,7 +62,7 @@ select,select:focus {
   border-left: none;
   outline: none;
   cursor: pointer;
-  background-color: $light-grey;
+  background-color: white;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -84,7 +85,7 @@ select,select:focus {
   pointer-events:none;
   right: 0px !important;
   top: 1.25rem;
-  background-color: $light-grey;
+  background-color: white;
 }
 
 .select-label:before {
@@ -97,7 +98,7 @@ select,select:focus {
   position:absolute;
   pointer-events:none;
   display:block;
-  background-color: $light-grey;
+  background-color: white;
 }
 
 #thumbnails > ul {
@@ -116,6 +117,13 @@ select,select:focus {
   padding-left: 10%;
   padding-right: 10%;
   text-align: justify;
+}
+
+.product-info {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid $grey;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 @import "bootstrap";
