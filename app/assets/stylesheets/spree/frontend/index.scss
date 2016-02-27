@@ -3,9 +3,11 @@ $transition-time: 0.25s;
 $brand-teal: #37fce0;
 $black: #222222;
 $grey: #888888;
+$box-height: 21rem;
+$box-height-mobile: 12rem;
 
 .product-hero {
-  height: 80vh;
+  height: $box-height * 2;
 }
 
 .store-map-widget {
@@ -14,7 +16,7 @@ $grey: #888888;
 }
 
 .store-map-widget--child {
-  height: 40vh;
+  height: $box-height;
 }
 
 .product-hero--child {
@@ -23,12 +25,12 @@ $grey: #888888;
 }
 
 .product-hero--child .flea-card--image {
-  height: 90%;
+  height: 85%;
 }
 
 .flea-card {
   background-color: white;
-  height: 40vh;
+  height: $box-height;
   margin: 0.1rem;
   margin-bottom: 0.25rem;
   transition: $transition-time;
@@ -46,6 +48,7 @@ $grey: #888888;
 }
 
 .flea-card--caption {
+  padding-top: 1rem;
   border-top: 1px solid $grey;
 }
 
@@ -55,6 +58,10 @@ $grey: #888888;
 
 .store-map-widget > .slick-slider {
   margin-bottom: 0px;
+}
+
+.store-map {
+  margin-top: 0.4rem;
 }
 
 .flea-card--caption__left,.flea-card--caption__right {
@@ -78,14 +85,28 @@ $grey: #888888;
     padding-left: 0rem !important;
     padding-right: 0rem !important;
   }
+  .product-hero {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
 }
 
 @include media-breakpoint-down(sm) {
-  .store-map-widget--child {
-    height: 50vh;
+  .product-hero {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+  .flea-card {
+    height: $box-height-mobile;
+  }
+  .flea-card--caption {
+    font-size: 0.75rem;
+    padding-top: 0rem;
   }
   .product-hero {
-    padding-left: 0rem;
-    padding-right: 0rem;
+    height: $box-height-mobile * 2;
+  }
+  .store-map-widget--child {
+    height: $box-height-mobile;
   }
 }
