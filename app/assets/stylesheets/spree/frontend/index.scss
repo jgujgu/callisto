@@ -11,7 +11,7 @@ $box-height-sm: 12rem;
 }
 
 .store-map-widget {
-  padding-left: 0.65rem !important;
+  padding-left: 0rem !important;
   padding-right: 0rem !important;
 }
 
@@ -103,7 +103,8 @@ $box-height-sm: 12rem;
     height: $box-height-lg;
   }
 }
-@include media-breakpoint-down(md) {
+
+@include media-breakpoint-down(lg) {
   .product-hero {
     padding-left: 0rem !important;
     padding-right: 0rem !important;
