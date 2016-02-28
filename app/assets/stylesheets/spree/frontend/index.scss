@@ -4,7 +4,8 @@ $brand-teal: #37fce0;
 $black: #222222;
 $grey: #888888;
 $box-height: 21rem;
-$box-height-mobile: 12rem;
+$box-height-sm: 12rem;
+$box-height-lg: 25rem;
 
 .product-hero {
   height: $box-height * 2;
@@ -67,6 +68,11 @@ $box-height-mobile: 12rem;
 .flea-card--caption__left,.flea-card--caption__right {
   color: $black;
   display: inline-block;
+  width: 50%;
+}
+
+.flea-card--caption__left > p,.flea-card--caption__right > p {
+  margin-bottom: 0rem;
 }
 
 .flea-card--caption__left {
@@ -78,6 +84,18 @@ $box-height-mobile: 12rem;
 }
 
 @import "bootstrap";
+
+@include media-breakpoint-up(lg) {
+  .flea-card {
+    height: $box-height-lg;
+  }
+  .product-hero {
+    height: $box-height-lg * 2;
+  }
+  .store-map-widget--child {
+    height: $box-height-lg;
+  }
+}
 
 @include media-breakpoint-down(md) {
   .store-map-widget {
@@ -96,17 +114,17 @@ $box-height-mobile: 12rem;
     padding-left: 0rem !important;
     padding-right: 0rem !important;
   }
-  .flea-card {
-    height: $box-height-mobile;
-  }
   .flea-card--caption {
     font-size: 0.75rem;
     padding-top: 0rem;
   }
+  .flea-card {
+    height: $box-height-sm;
+  }
   .product-hero {
-    height: $box-height-mobile * 2;
+    height: $box-height-sm * 2;
   }
   .store-map-widget--child {
-    height: $box-height-mobile;
+    height: $box-height-sm;
   }
 }
