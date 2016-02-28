@@ -3,12 +3,11 @@ $transition-time: 0.25s;
 $brand-teal: #37fce0;
 $black: #222222;
 $grey: #888888;
-$box-height: 21rem;
+$box-height-lg: 21rem;
 $box-height-sm: 12rem;
-$box-height-lg: 25rem;
 
 .product-hero {
-  height: $box-height * 2;
+  height: $box-height-lg * 2;
 }
 
 .store-map-widget {
@@ -17,7 +16,7 @@ $box-height-lg: 25rem;
 }
 
 .store-map-widget--child {
-  height: $box-height;
+  height: $box-height-lg;
 }
 
 .product-hero--child {
@@ -31,7 +30,7 @@ $box-height-lg: 25rem;
 
 .flea-card {
   background-color: white;
-  height: $box-height;
+  height: $box-height-lg;
   margin: 0.1rem;
   margin-bottom: 0.25rem;
   transition: $transition-time;
@@ -86,6 +85,14 @@ $box-height-lg: 25rem;
 @import "bootstrap";
 
 @include media-breakpoint-up(lg) {
+  .store-map-widget {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
+  .product-hero {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
   .flea-card {
     height: $box-height-lg;
   }
@@ -96,13 +103,7 @@ $box-height-lg: 25rem;
     height: $box-height-lg;
   }
 }
-
 @include media-breakpoint-down(md) {
-  .store-map-widget {
-    margin-top: 4vh;
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
-  }
   .product-hero {
     padding-left: 0rem !important;
     padding-right: 0rem !important;
@@ -110,10 +111,6 @@ $box-height-lg: 25rem;
 }
 
 @include media-breakpoint-down(sm) {
-  .product-hero {
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
-  }
   .flea-card--caption {
     font-size: 0.75rem;
     padding-top: 0rem;
