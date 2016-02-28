@@ -1,4 +1,4 @@
-<div id="checkout" class="col-md-10 col-md-offset-2 col-lg-offset-1" data-hook>
+<div id="checkout" class="col-md-10 col-md-offset-1" data-hook>
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
 
   <div class="row" data-hook="checkout_header">
@@ -6,11 +6,11 @@
     <div data-hook="checkout_progress"><%= checkout_progress %></div>
   </div>
 
-  <div class="row" data-hook="checkout_content">
-    <div class="columns <%= if @order.state != 'confirm' then 'alpha twelve' else 'alpha omega sixteen' end %>" data-hook="checkout_form_wrapper">
+  <div class="row checkout_content" data-hook="checkout_content">
+    <div class="col-xs-12" data-hook="checkout_form_wrapper">
       <%= form_for @order, :url => update_checkout_path(@order.state), :html => { :id => "checkout_form_#{@order.state}" } do |form| %>
         <% if @order.state == 'address' || !@order.email? %>
-          <p class="field col-xs-12" style='clear: both'>
+          <p class="field col-md-6 col-md-offset-3" style='clear: both'>
             <%= form.label :email %><br />
             <%= form.text_field :email, class: "flea-field" %>
           </p>

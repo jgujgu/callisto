@@ -1,4 +1,5 @@
 $brand-teal: #37fce0;
+$red: #fc3753;
 .order h6 {
   font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -12,10 +13,11 @@ $brand-teal: #37fce0;
 .select-label.country-state::after {
   left: 46% !important;
   top: 0rem !important;
+  width: 0rem;
 }
 
 .billing-fieldset-wrapper input, .shipping-fieldset-wrapper input {
-  width: 50%;
+  width: 100%;
 }
 
 .shipping-fieldset-wrapper #order_use_billing {
@@ -27,4 +29,13 @@ $brand-teal: #37fce0;
 
 .current, .completed {
   color: $brand-teal;
+}
+.edit_order #order_email {
+  width: 100%;
+}
+.nav-item {
+  font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+label.error {
+  color: $red;
 }

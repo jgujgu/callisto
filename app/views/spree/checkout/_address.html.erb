@@ -1,4 +1,4 @@
-<div class="col-md-6 billing-fieldset-wrapper" data-hook="billing_fieldset_wrapper">
+<div class="col-md-6 col-md-offset-3 billing-fieldset-wrapper" data-hook="billing_fieldset_wrapper">
   <fieldset id="billing" data-hook>
     <%= form.fields_for :bill_address do |bill_form| %>
       <legend align="center"><%= Spree.t(:billing_address) %></legend>
@@ -7,7 +7,7 @@
   </fieldset>
 </div>
 
-<div class="col-md-6 shipping-fieldset-wrapper" data-hook="shipping_fieldset_wrapper">
+<div class="col-md-6 col-md-offset-3 shipping-fieldset-wrapper" data-hook="shipping_fieldset_wrapper">
   <fieldset id="shipping" data-hook>
     <%= form.fields_for :ship_address do |ship_form| %>
       <legend align="center"><%= Spree.t(:shipping_address) %></legend>
@@ -19,9 +19,8 @@
     <% end %>
   </fieldset>
 </div>
-<hr class="clear" />
 
-<div class="form-buttons col-xs-12" data-hook="buttons">
+<div class="form-buttons col-md-6 col-md-offset-3" data-hook="buttons">
   <%= submit_tag Spree.t(:save_and_continue), :class => 'continue button primary btn btn-success-outline' %>
   <% if try_spree_current_user %>
     <span data-hook="save_user_address">

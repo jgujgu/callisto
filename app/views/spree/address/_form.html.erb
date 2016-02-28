@@ -30,7 +30,7 @@
     <%= form.label :country_id, Spree.t(:country) %><span class="required">*</span><br />
     <span id=<%="#{address_id}country-selection" %>>
       <label class="select-label country-state">
-        <%= form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %>
+        <%= form.collection_select :country_id, available_countries, :id, :name, { selected: "232" }, {:class => 'required'} %>
       </label>
     </span>
   </p>

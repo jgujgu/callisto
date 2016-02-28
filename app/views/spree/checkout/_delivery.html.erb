@@ -1,5 +1,5 @@
 <fieldset id='shipping_method' data-hook>
-  <div class="inner" data-hook="shipping_method_inner">
+  <div class="inner col-xs-12" data-hook="shipping_method_inner">
     <div id="methods">
       <%= form.fields_for :shipments do |ship_form| %>
 
@@ -94,6 +94,6 @@
 
 <br />
 
-<div class="form-buttons" data-hook="buttons">
+<div class="form-buttons col-xs-12" data-hook="buttons">
   <%= submit_tag Spree.t(:save_and_continue), :class => 'continue button primary btn btn-success-outline' %>
 </div>

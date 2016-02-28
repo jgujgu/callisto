@@ -1,4 +1,5 @@
 $red: #fc3753;
+$grey: #888888;
 .cart-item-quantity > .flea-field {
   width: 2rem;
   text-align: center;
@@ -6,4 +7,11 @@ $red: #fc3753;
 
 .delete > .fa-close {
   color: $red;
+}
+
+.checkout_content {
+  padding-top: 1rem;
+  background-color: white;
+  border: 1px solid $grey;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
