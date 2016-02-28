@@ -202,6 +202,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (3.0.2)
     rabl (0.11.8)
       activesupport (>= 2.3.14)
     rack (1.6.4)
@@ -408,6 +409,7 @@ DEPENDENCIES
   lodash-rails
   pg (~> 0.15)
   pry-rails
+  puma
   rails (= 4.2.5)
   rails-assets-tether (>= 1.1.0)!
   rails_12factor
