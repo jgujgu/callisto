@@ -3,6 +3,7 @@ $transition-time: 0.25s;
 $brand-teal: #37fce0;
 $black: #222222;
 $grey: #888888;
+$box-height-xl: 24rem;
 $box-height-lg: 21rem;
 $box-height-sm: 12rem;
 
@@ -84,23 +85,15 @@ $box-height-sm: 12rem;
 
 @import "bootstrap";
 
-@include media-breakpoint-up(lg) {
-  .store-map-widget {
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
-  }
-  .product-hero {
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
-  }
+@include media-breakpoint-up(xl) {
   .flea-card {
-    height: $box-height-lg;
+    height: $box-height-xl;
   }
   .product-hero {
-    height: $box-height-lg * 2;
+    height: $box-height-xl * 2;
   }
   .store-map-widget--child {
-    height: $box-height-lg;
+    height: $box-height-xl;
   }
 }
 
