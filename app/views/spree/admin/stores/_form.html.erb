@@ -1,5 +1,5 @@
 <div data-hook="admin_store_form_fields">
-  <div class="alpha four columns">
+  <div class="four columns">
     <%= f.field_container :name do %>
       <%= f.label :name, Spree.t(:store_name) %><br />
       <%= f.text_field :name, :class => 'fullwidth' %>
@@ -10,7 +10,11 @@
   <div class="two columns">
     <%= f.field_container :code do %>
       <%= f.label :code, Spree.t(:store_code) %><br />
-      <%= f.text_field :code, :class => 'fullwidth' %>
+      <% unless current_spree_user.has_spree_role? "super_admin" %>
+        <%= f.text_field :code, :class => 'fullwidth', disabled: true %>
+      <% else %>
+        <%= f.text_field :code, :class => 'fullwidth' %>
+      <% end %>
       <%= error_message_on :store, :code %>
     <% end %>
   </div>
@@ -18,21 +22,27 @@
   <div class="two columns">
     <%= f.field_container :showcase do %>
       <%= f.label :showcase, "Showcase"%>
-      <%= f.check_box :showcase %>
+      <% unless current_spree_user.has_spree_role? "super_admin" %>
+        <%= f.check_box :showcase, disabled: true %>
+      <% else %>
+        <%= f.check_box :showcase %>
+      <% end %>
       <%= error_message_on :store, :showcase %>
     <% end %>
   </div>
 
-  <div class="two columns">
-    <%= f.field_container :default do %>
-      <%= f.label :default, Spree.t(:default) %>
-      <ul>
-        <li><%= f.radio_button :default, "true", :class => 'fullwidth' %> <%= Spree.t(:yes) %></li>
-        <li><%= f.radio_button :default, "false", :class => 'fullwidth' %> <%= Spree.t(:no) %></li>
-      </ul>
-      <%= error_message_on :store, :default %>
-    <% end %>
-  </div>
+  <% if current_spree_user.has_spree_role? "super_admin" %>
+    <div class="two columns">
+      <%= f.field_container :default do %>
+        <%= f.label :default, Spree.t(:default) %>
+        <ul>
+          <li><%= f.radio_button :default, "true", :class => 'fullwidth' %> <%= Spree.t(:yes) %></li>
+          <li><%= f.radio_button :default, "false", :class => 'fullwidth' %> <%= Spree.t(:no) %></li>
+        </ul>
+        <%= error_message_on :store, :default %>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="ten columns">
     <%= f.field_container :description do %>
@@ -103,11 +113,12 @@
   <div class="ten columns">
     <script type="text/javascript" charset="utf-8">
       var storeLat = <%= @object.latitude %>
-      var storeLon = <%= @object.longitude %>
-    </script>
-    <div id="admin-store-map" class="admin-store-map"></div>
-  </div>
+    var storeLon = <%= @object.longitude %>
+  </script>
+  <div id="admin-store-map" class="admin-store-map"></div>
+</div>
 
+<% if current_spree_user.has_spree_role? "super_admin" %>
   <div class="four columns">
     <%= f.field_container :mail_from_address do %>
       <%= f.label :mail_from_address, Spree.t(:send_mails_as) %><br />
@@ -122,31 +133,37 @@
       <%= f.text_field :default_currency %>
     <% end %>
   </div>
+<% end %>
 
-  <div class="six columns">
-    <%= f.field_container :url do %>
-      <%= f.label :url, Spree.t(:domains) %><br />
-      <%= f.text_area :url, :cols => 60, :rows => 4, :class => 'fullwidth' %>
-      <%= error_message_on :store, :url %>
+<div class="six columns">
+  <%= f.field_container :url do %>
+    <%= f.label :url, Spree.t(:domain) %><br />
+    <% unless current_spree_user.has_spree_role? "super_admin" %>
+      <%= f.text_field :url, :class => 'fullwidth', disabled: true  %>
+    <% else %>
+      <%= f.text_field :url, :class => 'fullwidth' %>
     <% end %>
-  </div>
+    <%= error_message_on :store, :url %>
+  <% end %>
+</div>
 
-  <div class="eight columns">
-    <%= image_tag @store.logo %>
-    <%= f.field_container :logo do %>
-      <%= f.label :logo, Spree.t(:logo) %><br />
-      <%= f.file_field :logo %>
-      <%= error_message_on :store, :logo %>
-    <% end %>
+<div class="eight columns">
+  <%= image_tag @store.logo %>
+  <%= f.field_container :logo do %>
+    <%= f.label :logo, Spree.t(:logo) %><br />
+    <%= f.file_field :logo %>
+    <%= error_message_on :store, :logo %>
+  <% end %>
 
-    <%= image_tag @store.hero %>
-    <%= f.field_container :hero do %>
-      <%= f.label :hero, "Hero" %><br />
-      <%= f.file_field :hero %>
-      <%= error_message_on :store, :hero %>
-    <% end %>
-  </div>
+  <%= image_tag @store.hero %>
+  <%= f.field_container :hero do %>
+    <%= f.label :hero, "Hero" %><br />
+    <%= f.file_field :hero %>
+    <%= error_message_on :store, :hero %>
+  <% end %>
+</div>
 
+<% if current_spree_user.has_spree_role? "super_admin" %>
   <div class='row'>
     <div class="alpha six columns">
       <%= f.field_container :payment_methods do %>
@@ -161,19 +178,20 @@
         <%= hidden_field_tag 'store[payment_method_ids][]', '' %>
       <% end %>
     </div>
+  <% end %>
 
-    <div class="omega six columns">
-      <%= f.field_container :shipping_methods do %>
-        <%= f.label :shipping_methods, Spree.t(:shipping_methods) %><br />
-        <% @shipping_methods.each do |shipping_method| %>
-          <label class="sub">
-            <%= check_box_tag 'store[shipping_method_ids][]', shipping_method.id, @store.shipping_methods.include?(shipping_method) %>
-          </label> &nbsp;
-          <%= shipping_method.name %>
-          <br>
-        <% end %>
-        <%= hidden_field_tag 'store[shipping_method_ids][]', '' %>
+  <div class="omega six columns">
+    <%= f.field_container :shipping_methods do %>
+      <%= f.label :shipping_methods, Spree.t(:shipping_methods) %><br />
+      <% @shipping_methods.each do |shipping_method| %>
+        <label class="sub">
+          <%= check_box_tag 'store[shipping_method_ids][]', shipping_method.id, @store.shipping_methods.include?(shipping_method) %>
+        </label> &nbsp;
+        <%= shipping_method.name %>
+        <br>
       <% end %>
-    </div>
+      <%= hidden_field_tag 'store[shipping_method_ids][]', '' %>
+    <% end %>
   </div>
+</div>
 </div>
