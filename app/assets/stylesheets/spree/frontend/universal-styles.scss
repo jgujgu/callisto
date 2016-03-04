@@ -33,28 +33,38 @@ div {
   border-radius: $btn-border-radius !important;
 }
 
-.btn-success-outline  {
+.btn-success-outline {
   color: $black !important;
   border-color: $brand-teal !important;
   transition: $transition-time;
 }
 
-.btn-danger-outline  {
+.btn-danger-outline {
   color: $red !important;
   border-color: $red !important;
   transition: $transition-time;
 }
 
-.btn-danger-outline:hover, .btn-danger-outline:focus  {
+.btn-danger-outline:hover, .btn-danger-outline:focus {
   color: white !important;
   background-color: $red !important;
   transition: $transition-time;
   outline: none !important;
 }
 
-.btn-success-outline:hover, .btn-success-outline:focus  {
+.btn-success-outline:hover, .btn-success-outline:focus {
   background-color: $brand-teal !important;
   transition: $transition-time;
+  outline: none !important;
+}
+
+.btn-success-outline:hover:disabled {
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.btn-disabled:disabled:hover {
+  background-color: transparent-teal !important;
   outline: none !important;
 }
 

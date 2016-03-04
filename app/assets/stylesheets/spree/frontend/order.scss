@@ -39,3 +39,12 @@ $red: #fc3753;
 label.error {
   color: $red;
 }
+#payment-submit[disabled=disabled], #payment-submit:disabled {
+  color: red;
+}
+#payment-method-fields {
+  display: none;
+}
+.form-buttons {
+  margin-bottom: 1rem;
+}

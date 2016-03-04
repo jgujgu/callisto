@@ -1,0 +1,10 @@
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript" charset="utf-8">
+  var email = "<%= raw current_spree_user.email %>";
+</script>
+<button id="stripeButton" class="btn btn-success-outline">
+  <%= Spree.t(:pay_with_card) %>
+</button>
+<% param_prefix = "payment_source[#{payment_method.id}]" %>
+<%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "stripe_token", :class => 'stripeToken' %>
+<%= hidden_field_tag "#{param_prefix}[cc_type]", '', :id => "cc_type", :class => 'ccType' %>

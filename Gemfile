@@ -30,6 +30,7 @@ gem 'lodash-rails'
 gem 'gmaps4rails'
 gem 'aws-sdk', '< 2.0'
 gem 'puma'
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug'

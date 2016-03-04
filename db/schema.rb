@@ -173,8 +173,8 @@ ActiveRecord::Schema.define(version: 20160222062653) do
 
   create_table "spree_day_hours", force: :cascade do |t|
     t.integer "store_id"
-    t.time    "opening_time", default: '2000-01-01 04:17:24'
-    t.time    "closing_time", default: '2000-01-01 04:17:24'
+    t.time    "opening_time", default: '2000-01-01 19:14:07'
+    t.time    "closing_time", default: '2000-01-01 19:14:07'
     t.string  "day_name"
     t.integer "order",        default: 1
   end
