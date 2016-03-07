@@ -4,6 +4,7 @@ $(document).ready(function() {
     var $tripeButton = $('#stripeButton');
     $tripeButton.prop('disabled', false);
     var $paymentSubmit = $("#payment-submit");
+    $paymentSubmit.prop('disabled', true);
 
     var handler = StripeCheckout.configure({
       key: 'pk_test_fads0ZlNqu7ZE4dh5Ko3U4Mr',
@@ -13,9 +14,6 @@ $(document).ready(function() {
         $tripeButton.prop('disabled', true);
         $("#stripe_token").val(token.id);
         $paymentSubmit.prop('disabled', false);
-        $paymentSubmit.click(function() {
-          $paymentSubmit.prop('disabled', true);
-        });
       }
     });
 
