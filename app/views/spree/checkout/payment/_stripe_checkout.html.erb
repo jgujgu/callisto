@@ -1,6 +1,10 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script type="text/javascript" charset="utf-8">
-  var email = "<%= raw current_spree_user.email %>";
+  <% if current_spree_user %>
+      var email = "<%= raw current_spree_user.email %>";
+  <% else %>
+      var email = "";
+  <% end %>
 </script>
 <button id="stripeButton" class="btn btn-success-outline">
   <%= Spree.t(:pay_with_card) %>

@@ -119,13 +119,6 @@ select,select:focus {
   text-align: justify;
 }
 
-.product-info {
-  background-color: white;
-  padding: 1rem;
-  border: 1px solid $grey;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
-}
-
 @import "bootstrap";
 
 @include media-breakpoint-down(sm) {

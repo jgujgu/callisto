@@ -1,4 +1,4 @@
-$caption-aorder-radius: 0.16rem;
+$caption-border-radius: 0.16rem;
 $transition-time: 0.25s;
 $brand-teal: #37fce0;
 $black: #222222;
@@ -9,6 +9,7 @@ $box-height-sm: 12rem;
 
 .product-hero {
   height: $box-height-lg * 2;
+  padding-right: 0rem !important;
 }
 
 .store-map-widget {
@@ -39,6 +40,10 @@ $box-height-sm: 12rem;
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
+.store-hero .flea-card--caption {
+  padding-top: .5rem;
+}
+
 .flea-card--price {
   color: $brand-teal;
 }
@@ -53,6 +58,10 @@ $box-height-sm: 12rem;
   border-top: 1px solid $grey;
 }
 
+.flea-card--caption {
+  font-size: 0.9rem;
+}
+
 .flea-card--image {
   height: 75%;
 }
@@ -62,25 +71,39 @@ $box-height-sm: 12rem;
 }
 
 .store-map {
-  margin-top: 0.4rem;
+  margin-top: 0.3rem;
 }
 
 .flea-card--caption__left,.flea-card--caption__right {
   color: $black;
   display: inline-block;
-  width: 50%;
 }
 
 .flea-card--caption__left > p,.flea-card--caption__right > p {
   margin-bottom: 0rem;
 }
 
-.flea-card--caption__left {
-  padding-left: 1rem;
+.store-hero .flea-card--caption__left {
+  width: 40%;
+}
+
+.store-hero .flea-card--caption__right {
+  width: 60%;
 }
 
 .flea-card--caption__right {
   padding-right: 1rem;
+}
+.flea-card--caption__left {
+  padding-left: 1rem;
+}
+
+.product-hero--child .flea-card--caption__left {
+  width: 80%;
+}
+
+.product-hero--child .flea-card--caption__right {
+  width: 20%;
 }
 
 @import "bootstrap";
@@ -102,13 +125,14 @@ $box-height-sm: 12rem;
     padding-left: 0rem !important;
     padding-right: 0rem !important;
   }
+  .store-hero .flea-card--caption {
+    padding-top: 0rem !important;
+  }
 }
 
+@include media-breakpoint-up(md) {
+}
 @include media-breakpoint-down(sm) {
-  .flea-card--caption {
-    font-size: 0.75rem;
-    padding-top: 0rem;
-  }
   .flea-card {
     height: $box-height-sm;
   }
@@ -117,5 +141,18 @@ $box-height-sm: 12rem;
   }
   .store-map-widget--child {
     height: $box-height-sm;
+  }
+  .flea-card--caption__right {
+    padding-right: 0.25rem;
+  }
+  .flea-card--caption__left {
+    padding-left: 0.25rem;
+  }
+  .flea-card--caption {
+    font-size: 0.55rem;
+    padding-top: 0.5rem !important;
+  }
+  .store-hero .flea-card--caption {
+    padding-top: 0.25rem;
   }
 }
