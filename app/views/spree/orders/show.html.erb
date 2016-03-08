@@ -1,4 +1,4 @@
-<fieldset id="order_summary" data-hook>
+<fieldset id="order_summary" data-hook class="flea-wrap">
   <h3><%= Spree.t(:order_number, :number => @order.number) %></h3>
   <% if order_just_completed?(@order) %>
     <strong><%= Spree.t(:thank_you_for_your_order) %></strong>

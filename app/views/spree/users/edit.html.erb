@@ -2,7 +2,7 @@
 
 <div id="edit-account">
 
-  <div data-hook="account_edit" class="col-lg-4 col-lg-offset-4 login">
+  <div data-hook="account_edit" class="col-lg-4 col-lg-offset-4 login flea-wrap">
     <h6><%= Spree.t(:update_login_info) %></h6>
     <%= form_for Spree::User.new, :as => @user, :url => spree.user_path(@user), :method => :put do |f| %>
       <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
