@@ -60,14 +60,20 @@
     <% order.line_items.each do |item| %>
       <tr data-hook="order_details_line_item_row">
         <td data-hook="order_item_image">
+          <% store = item.variant.product.stores.first %>
+          <% product_subdomained_url = product_url(item.variant.product, subdomain: store.code) %>
           <% if item.variant.images.length == 0 %>
-            <%= link_to image_tag(item.variant.product.display_image.attachment(:small)), item.variant.product %>
+            <%= link_to image_tag(item.variant.product.display_image.attachment(:small)), product_subdomained_url %>
           <% else %>
-            <%= link_to image_tag(item.variant.images.first.attachment.url(:small)), item.variant.product %>
+            <%= link_to image_tag(item.variant.images.first.attachment.url(:small)), product_subdomained_url %>
           <% end %>
         </td>
         <td data-hook="order_item_description">
-          <h4><%= item.variant.product.name %></h4>
+          <%= link_to product_subdomained_url do %>
+            <h4>
+              <%= item.variant.product.name %>
+            </h4>
+          <% end %>
           <%= truncated_product_description(item.variant.product) %>
           <%= "(" + item.variant.options_text + ")" unless item.variant.option_values.empty? %>
         </td>
@@ -135,7 +141,7 @@
 
   <tfoot id="order-charges" data-hook="order_details_adjustments">
     <% order.adjustments.eligible.each do |adjustment| %>
-    <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
+      <% next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
       <tr class="total">
         <td colspan="4"><strong><%= adjustment.label %></strong></td>
         <td class="total"><span><%= adjustment.display_amount.to_html %></span></td>
