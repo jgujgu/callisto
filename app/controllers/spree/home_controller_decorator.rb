@@ -19,9 +19,10 @@ module Spree
 
         index = 0
         store_markers = Gmaps4rails.build_markers(@stores) do |store, marker|
+          directions_link = "http://maps.google.com/maps?saddr=@#{@geocoder_result["latitude"]},#{@geocoder_result["longitude"]}&daddr=@#{store[:latitude]},#{store[:longitude]}"
           marker.lat store[:latitude]
           marker.lng store[:longitude]
-          marker.infowindow render_to_string(:partial => "/spree/partials/store_marker", locals: { store: store, index: index})
+          marker.infowindow render_to_string(:partial => "/spree/partials/store_marker", locals: { store: store, index: index, directions_link: directions_link })
           marker.json({ id: index })
           index += 1
         end
