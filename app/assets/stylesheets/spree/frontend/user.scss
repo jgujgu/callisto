@@ -1,0 +1,12 @@
+$fb-blue: #3B5998;
+$red: #fc3753;
+$red-dark: #e10323;
+.icon-spree-facebook-circled {
+  color: $fb-blue;
+}
+.remove {
+  color: $red !important;
+}
+.remove:hover,.remove:focus {
+  color: $red-dark !important;
+}

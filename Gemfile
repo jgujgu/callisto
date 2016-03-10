@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'solidus'
 gem 'solidus_auth_devise'
 gem "solidus_multi_domain"
+gem 'solidus_social'
 gem 'figaro'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'font-awesome-sass'

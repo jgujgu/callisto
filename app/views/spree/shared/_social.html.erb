@@ -1,0 +1,17 @@
+<div id="social-signin-links" class="col-lg-4 col-lg-offset-4 login flea-wrap text-center">
+  <% if (!spree_current_user || !spree_current_user.user_authentications) && Spree::AuthenticationMethod.active_authentication_methods? %>
+    <h2>
+      Login with Facebook
+    </h2>
+  <% else %>
+    <h4>
+      Connect with Facebook account
+    </h4>
+  <% end %>
+
+  <% Spree::AuthenticationMethod.available_for(@spree_user).each do |method| %>
+    <%= link_to(content_tag(:i, '', class: "icon-spree-#{method.provider.to_url}-circled"),
+          spree.spree_user_omniauth_authorize_url(provider: method.provider),
+          title: Spree.t(:sign_in_with, provider: method.provider)) if method.active %>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+<% if Spree::AuthenticationMethod.active_authentication_methods? %>
+  <% if spree_current_user.user_authentications %>
+    <% unless spree_current_user.user_authentications.empty? %>
+      <% @body_id = 'login' %>
+      <div id="existing-customer" class="col-lg-4 col-lg-offset-4 login flea-wrap text-center">
+        <p><strong>
+            You have linked your Facebook account.
+        </strong></p>
+        <div class="authentications">
+          <% for user_authentication in spree_current_user.user_authentications %>
+            <div class="authentication">
+              <div class="provider columns two">
+                <%= content_tag(:i, '', class: "icon-spree-#{user_authentication.provider.to_url}-circled columns") %>
+              </div>
+              <%= link_to 'Remove connection to Facebook account.', user_authentication, data: { confirm: "#{Spree.t(:remove_authentication_option_confirmation)}" }, method: :delete, class: 'remove' %>
+            </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if Spree::AuthenticationMethod.available_for(spree_current_user).exists? %>
+  <%= render 'spree/shared/social' %>
+<% end %>
