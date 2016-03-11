@@ -24,29 +24,15 @@
     </tr>
   </thead>
   <tbody>
-    <% if current_spree_user.has_spree_role?("super_admin") %>
-      <% @users.each do |user|%>
-        <tr id="<%= spree_dom_id user %>" data-hook="admin_users_index_rows" class="<%= cycle('odd', 'even')%>">
-          <td class='user_email'><%=link_to user.email, edit_admin_user_url(user) %></td>
-          <td data-hook="admin_users_index_row_actions" class="actions">
-            <% if can?(:edit, user) %>
-              <%= link_to_edit user, :no_text => true %>
-            <% end %>
-            <% if can?(:destroy, user) %>
-              <%= link_to_delete user, :no_text => true %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    <% else %>
-      <tr id="<%= spree_dom_id current_spree_user %>" data-hook="admin_users_index_rows" class="<%= cycle('odd', 'even')%>">
-        <td class='user_email'><%=link_to current_spree_user.email, edit_admin_user_url(current_spree_user) %></td>
+    <% @users.each do |user|%>
+      <tr id="<%= spree_dom_id user %>" data-hook="admin_users_index_rows" class="<%= cycle('odd', 'even')%>">
+        <td class='user_email'><%=link_to user.email, edit_admin_user_url(user) %></td>
         <td data-hook="admin_users_index_row_actions" class="actions">
-          <% if can?(:edit, current_spree_user) %>
-            <%= link_to_edit current_spree_user, :no_text => true %>
+          <% if can?(:edit, user) %>
+            <%= link_to_edit user, :no_text => true %>
           <% end %>
-          <% if can?(:destroy, current_spree_user) %>
-            <%= link_to_delete current_spree_user, :no_text => true %>
+          <% if can?(:destroy, user) %>
+            <%= link_to_delete user, :no_text => true %>
           <% end %>
         </td>
       </tr>
