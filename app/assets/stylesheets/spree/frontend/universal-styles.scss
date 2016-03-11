@@ -52,14 +52,14 @@ div {
   transition: $transition-time;
 }
 
-.btn-danger-outline:hover, .btn-danger-outline:focus {
+.btn-danger-outline:hover, .btn-danger-outline:focus, .btn-danger-outline:active {
   color: white !important;
   background-color: $red !important;
   transition: $transition-time;
   outline: none !important;
 }
 
-.btn-success-outline:hover, .btn-success-outline:focus {
+.btn-success-outline:hover, .btn-success-outline:focus, .btn-success-outline:active {
   background-color: $brand-teal !important;
   transition: $transition-time;
   outline: none !important;

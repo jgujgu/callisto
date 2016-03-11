@@ -1,0 +1,17 @@
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @spree_user } %>
+<div id="change-password" class="login col-md-4 col-md-offset-4 flea-wrap">
+  <h6><%= Spree.t(:change_my_password) %></h6>
+
+  <%= form_for @spree_user, :as => :spree_user, :url => spree.update_password_path, :method => :put do |f| %>
+    <p>
+      <%= f.label :password, Spree.t(:password) %><br />
+      <%= f.password_field :password, class: "flea-field" %><br />
+    </p>
+    <p>
+      <%= f.label :password_confirmation, Spree.t(:confirm_password) %><br />
+      <%= f.password_field :password_confirmation, class: "flea-field" %><br />
+    </p>
+    <%= f.hidden_field :reset_password_token %>
+    <%= f.submit Spree.t(:update), :class => 'button primary btn btn-success-outline' %>
+  <% end %>
+</div>
