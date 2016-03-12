@@ -14,6 +14,8 @@ class Spree::Gateway::StripeCheckout < Spree::Gateway
   def purchase(amount, transaction_details, options = {})
     Stripe.api_key = ENV["STRIPE_SECRET_KEY"]
     token = transaction_details[:gateway_payment_profile_id]
+    user_id = transaction_details.user_id
+    geocode_purchasing_user(user_id) if user_id
     metadata = {
       :order_id => options[:order_id],
       :customer => options[:customer],
@@ -22,6 +24,7 @@ class Spree::Gateway::StripeCheckout < Spree::Gateway
       :tax => Money.new(options[:tax]).to_s,
       :discount => Money.new(options[:discount]).to_s,
       :currency => "USD",
+      :user_id => user_id
     }
     begin
       charge = Stripe::Charge.create(
@@ -41,5 +44,10 @@ class Spree::Gateway::StripeCheckout < Spree::Gateway
 
   def auto_capture?
     true
+  end
+
+  def geocode_purchasing_user(user_id)
+    latitude, longitude = Spree::User.find_by(id: user_id).geocode
+    Spree::User.update(user_id, latitude: latitude, longitude: longitude)
   end
 end
