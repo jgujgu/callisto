@@ -40,6 +40,8 @@ class Spree::Admin::DayHoursController < Spree::Admin::ResourceController
       'Wednesday',
       'Thursday',
       'Friday',
+      'Saturday',
+      'Sunday',
       'Holidays',
       'Memorial Day',
       '4th of July',

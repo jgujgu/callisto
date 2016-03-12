@@ -1,0 +1,20 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:edit_social_method) %>
+<% end %>
+
+<% if current_spree_user.has_spree_role?("super_admin") %>
+  <% content_for :page_actions do %>
+    <li><%= link_to_with_icon 'icon-arrow-left', Spree.t(:back_to_authentication_methods_list), admin_authentication_methods_path, class: 'button' %></li>
+  <% end %>
+
+  <%= render 'spree/shared/error_messages', target: @authentication_method %>
+
+  <%= form_for [:admin, @authentication_method] do |f| %>
+    <fieldset class="no-border-top">
+      <%= render 'form', f: f %>
+      <%= render 'spree/admin/shared/edit_resource_links' %>
+    </fieldset>
+  <% end %>
+<% end %>

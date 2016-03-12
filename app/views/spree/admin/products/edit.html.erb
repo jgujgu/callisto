@@ -9,7 +9,7 @@
 
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @product } %>
 
-<% if current_spree_user.has_spree_role?("super_admin") || current_spree_user.store.id == @product.stores.first.id %>
+<% if current_spree_user.has_spree_role?("super_admin") || current_store.id == @product.stores.first.id %>
   <%= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Product Details' } %>
   <%= form_for [:admin, @product], :method => :put, :html => { :multipart => true } do |f| %>
     <fieldset class="no-border-top">

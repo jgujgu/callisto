@@ -15,7 +15,7 @@
   <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @store } %>
 </div>
 
-<% if current_spree_user.has_spree_role?("super_admin") || current_spree_user.store.id == @store.id %>
+<% if current_spree_user.has_spree_role?("super_admin") || current_store.id == @store.id %>
 
   <div data-hook="admin_store_edit_form">
     <%= form_for [:admin, @store], :html => {:multipart => true} do |f| %>
