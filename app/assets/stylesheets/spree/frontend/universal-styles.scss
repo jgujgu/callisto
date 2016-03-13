@@ -124,47 +124,50 @@ a:hover, a:focus {
   }
 }
 
-.footer-bottom {
-  height: 2rem;
+
+@include media-breakpoint-down(sm) {
+  .footer-bottom {
+    height: 2rem;
+  }
 }
 
 /*for debugging breakpoints*/
 /*@include media-breakpoint-down(lg) {*/
-  /*body {*/
-    /*background-color: pink !important;*/
-  /*}*/
+/*body {*/
+/*background-color: pink !important;*/
+/*}*/
 /*}*/
 /*@include media-breakpoint-down(md) {*/
-  /*body {*/
-    /*background-color: red !important;*/
-  /*}*/
+/*body {*/
+/*background-color: red !important;*/
+/*}*/
 /*}*/
 /*@include media-breakpoint-down(sm) {*/
-  /*body {*/
-    /*background-color: lawngreen !important;*/
-  /*}*/
+/*body {*/
+/*background-color: lawngreen !important;*/
+/*}*/
 /*}*/
 
 /*#content {*/
-  /*background-color: lightpink;*/
+/*background-color: lightpink;*/
 /*}*/
 
 /*#wrapper {*/
-  /*background-color: indigo;*/
+/*background-color: indigo;*/
 /*}*/
 
 /*.container {*/
-  /*background-color: lavenderblush;*/
+/*background-color: lavenderblush;*/
 /*}*/
 
 /*.store-hero {*/
-  /*background-color: lightgreen;*/
+/*background-color: lightgreen;*/
 /*}*/
 
 /*.product-map-widget {*/
-  /*background-color: lightgreen;*/
+/*background-color: lightgreen;*/
 /*}*/
 
 /*.store-map {*/
-  /*background-color: rebeccapurple;*/
+/*background-color: rebeccapurple;*/
 /*}*/

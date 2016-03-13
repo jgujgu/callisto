@@ -6,7 +6,7 @@
       <%= check_box_tag "product[store_ids][]", store.id, @product.stores.include?(store), id: "product_store_id_#{store.id}" %>
       <%= label_tag "product_store_id_#{store.id}", store.name %>
     <% elsif store.id == current_store.id %>
-      <%= check_box_tag "product[store_ids][]", store.id, @product.stores.include?(store), id: "product_store_id_#{store.id}", disabled: true %>
+      <%= check_box_tag "product[store_ids][]", store.id, true, id: "product_store_id_#{store.id}", disabled: true %>
       <%= label_tag "product_store_id_#{store.id}", store.name %>
     <% end %>
   <% end %>

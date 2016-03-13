@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311234003) do
+ActiveRecord::Schema.define(version: 20160313013510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -879,6 +879,7 @@ ActiveRecord::Schema.define(version: 20160311234003) do
     t.boolean  "fulfillable",             default: true,  null: false
     t.string   "code"
     t.boolean  "check_stock_on_transfer", default: true
+    t.integer  "store_id"
   end
 
   add_index "spree_stock_locations", ["country_id"], name: "index_spree_stock_locations_on_country_id", using: :btree
@@ -1022,6 +1023,8 @@ ActiveRecord::Schema.define(version: 20160311234003) do
     t.string   "description"
     t.boolean  "showcase",          default: false
     t.string   "phone_number",      default: "9999999999"
+    t.integer  "country_id",        default: 232
+    t.integer  "state_id",          default: 3530
   end
 
   add_index "spree_stores", ["code"], name: "index_spree_stores_on_code", using: :btree

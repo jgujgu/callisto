@@ -60,7 +60,7 @@
     <% end %>
   </div>
 
-  <div class="four columns">
+  <div class="three columns">
     <%= f.field_container :city do %>
       <%= f.label :city, "City" %><br />
       <%= f.text_field :city, :class => 'fullwidth' %>
@@ -68,15 +68,17 @@
     <% end %>
   </div>
 
-  <div class="one columns">
-    <%= f.field_container :state do %>
-      <%= f.label :state, "State" %><br />
-      <%= f.text_field :state, :class => 'fullwidth', maxlength: 2 %>
-      <%= error_message_on :store, :state %>
+  <div class="three columns" data-hook="stock_location_state">
+    <%= f.field_container :state_id do %>
+      <%= f.label :state_id %>
+      <span id="state" class="region">
+        <% country = f.object.country || Spree::Country.find_by(id: 232) %>
+        <%= f.collection_select :state_id, country.states.sort, :id, :name, { include_blank: true }, {class: 'select2 fullwidth', style: "display: #{country.states.empty? ? 'none' : 'block' };", disabled: country.states.empty?} %>
+      </span>
     <% end %>
   </div>
 
-  <div class="three columns">
+  <div class="two columns">
     <%= f.field_container :zipcode do %>
       <%= f.label :zipcode, "Zipcode" %><br />
       <%= f.text_field :zipcode, :class => 'fullwidth', maxlength: 5 %>
