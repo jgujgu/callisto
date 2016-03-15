@@ -128,6 +128,25 @@ a:hover, a:focus {
   height: 0.5rem;
 }
 
+.flash.alert {
+  position: fixed;
+  left: 5px;
+  right: 5px;
+  top: 5rem;
+  background-color: $brand-teal !important;
+  color: black !important;
+  font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.5rem;
+}
+
+@include media-breakpoint-down(sm) {
+  .flash.alert {
+    font-size: 1.25rem;
+    z-index: 999;
+    top: 10rem;
+  }
+}
+
 /*for debugging breakpoints*/
 /*@include media-breakpoint-down(lg) {*/
 /*body {*/

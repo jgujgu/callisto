@@ -19,7 +19,8 @@ Spree::BaseHelper.class_eval do
 
     flash.each do |msg_type, text|
       unless ignore_types.include?(msg_type)
-        concat(content_tag(:div, text, class: "flash #{msg_type} alert"))
+        dismiss_button = content_tag(:button, "", class: "close", "data-dismiss" => "alert", "aria-label" => "Close")
+        concat(content_tag(:div, dismiss_button + text, class: "col-md-6 col-md-offset-3 flash #{msg_type} alert alert-success text-center fade in"))
       end
     end
     nil
