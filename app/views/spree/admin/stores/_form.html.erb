@@ -94,24 +94,6 @@
     <% end %>
   </div>
 
-  <div class="five columns">
-    <%= f.field_container :latitude do %>
-      <%= f.label :latitude, "latitude" %><br />
-      <p>
-        <%= @object.latitude %>
-      </p>
-    <% end %>
-  </div>
-
-  <div class="five columns">
-    <%= f.field_container :longitude do %>
-      <%= f.label :longitude, "longitude" %><br />
-      <p>
-        <%= @object.longitude %>
-      </p>
-    <% end %>
-  </div>
-
   <div class="ten columns">
     <script type="text/javascript" charset="utf-8">
       var storeLat = <%= @object.latitude %>

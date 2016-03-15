@@ -9,12 +9,13 @@ Spree::Store.class_eval do
   has_many :users
   has_one :stock_location
   after_create :create_stock_location
+  after_update :update_stock_location
 
   belongs_to :country
   belongs_to :state
 
   def create_stock_location
-    Spree::StockLocation.create(
+    Spree::StockLocation.find_or_create_by(
       store_id: self.id,
       name: self.name,
       default: false,
@@ -35,6 +36,21 @@ Spree::Store.class_eval do
       fulfillable: true,
       code: self.code,
       check_stock_on_transfer: true,
+    )
+  end
+
+  def update_stock_location
+    location = Spree::StockLocation.find_by(store_id: self.id)
+    location.update(
+      name: self.name,
+      address1: self.street_address,
+      city: self.city,
+      state_id: self.state_id,
+      state_name: nil,
+      zipcode: self.zipcode,
+      phone: self.phone_number,
+      admin_name: self.code,
+      code: self.code,
     )
   end
 
