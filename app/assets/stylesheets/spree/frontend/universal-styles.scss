@@ -124,11 +124,8 @@ a:hover, a:focus {
   }
 }
 
-
-@include media-breakpoint-down(sm) {
-  .footer-bottom {
-    height: 2rem;
-  }
+.footer-bottom {
+  height: 0.5rem;
 }
 
 /*for debugging breakpoints*/

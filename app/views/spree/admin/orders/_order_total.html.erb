@@ -1,0 +1,17 @@
+<% if current_spree_user.has_spree_role? "super_admin" %>
+  <% if @order.line_items.exists? %>
+    <fieldset class="no-border-bottom" id="order-total" data-hook="order_details_total">
+      <legend><%= Spree.t(:order_total) %></legend>
+      <span class="order-total"><%= @order.display_total %></span>
+    </fieldset>
+  <% end %>
+<% else %>
+  <fieldset class="no-border-bottom" id="order-total" data-hook="order_details_total">
+    <legend><%= Spree.t(:order_total) %></legend>
+    <span class="order-total">
+      <% shipment = @order.shipments.where(stock_location_id: current_spree_user.stock_locations.first.id).first %>
+
+    $<%= total_shipment_cost(shipment) %>
+</span>
+  </fieldset>
+<% end %>
