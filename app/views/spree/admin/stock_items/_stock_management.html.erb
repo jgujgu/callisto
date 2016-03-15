@@ -2,10 +2,9 @@
 
 <table class="index stock-table number-field-update-table" id="listing_product_stock">
   <colgroup>
-    <col style="width: 50%" />
+    <col style="width: 55%" />
     <col style="width: 20%" />
     <col style="width: 10%" />
-    <col style="width: 5%" />
     <col style="width: 5%" />
     <col style="width: 10%" />
   </colgroup>
@@ -14,7 +13,6 @@
       <th><%= Spree.t(:item) %></th>
       <th><%= Spree.t(:options) %></th>
       <th><%= Spree.t(:stock_location) %></th>
-      <th><%= Spree.t(:backorderable_header) %></th>
       <th><%= Spree.t(:count_on_hand) %></th>
       <th class="actions"></th>
     </tr>
@@ -65,11 +63,6 @@
         <% if @stock_item_stock_locations.include?(item.stock_location) %>
           <tr class="<%= cycle('odd', 'even', :name => 'stock_locations')%>" data-variant-id="<%= variant.id %>">
             <td class='align-center location-name-cell'><%= item.stock_location.name %></td>
-            <td class='align-center'>
-              <% if can?(:update, item) %>
-                <%= check_box_tag :backorderable, 'backorderable', item.backorderable?, id: "backorderable-#{item.id}", disabled: "disabled" %>
-              <% end %>
-            </td>
             <%= render partial: 'spree/admin/shared/number_field_update_cell', locals: { resource_id: item.id, field_tag: :count_on_hand, number_value: item.count_on_hand } %>
             <td class="actions">
               <%= render partial: 'spree/admin/shared/number_field_update_actions', locals: { resource: item, update_data: { location_id: item.stock_location_id } } %>
@@ -82,9 +75,6 @@
           <tr class="<%= cycle('odd', 'even', :name => 'stock_locations')%>" data-variant-id="<%= variant.id %>">
             <td class='location-name-cell'>
               <%= select_tag :stock_location_id, options_from_collection_for_select(locations_without_items, :id, :name), { :include_blank => true, :class => 'select2', "data-placeholder" => Spree.t(:add_to_stock_location), :id => "variant-stock-location-#{variant.id}" } %>
-            </td>
-            <td class="align-center">
-              <%= check_box_tag :backorderable, 'backorderable', false, id: "variant-backorderable-#{variant.id}" %>
             </td>
             <td class="align-center">
               <%= number_field_tag :count_on_hand, "", class: 'fullwidth', id: "variant-count-on-hand-#{variant.id}" %>

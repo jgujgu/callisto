@@ -35,11 +35,10 @@ class Spree::Gateway::StripeCheckout < Spree::Gateway
         :receipt_email => options[:email],
         :metadata => metadata
       )
+      ActiveMerchant::Billing::Response.new(true, 'success', {}, {})
     rescue Stripe::CardError => e
-      # The card has been declined
+      ActiveMerchant::Billing::Response.new(false, 'This card has been declined.', {}, {})
     end
-
-    ActiveMerchant::Billing::Response.new(true, 'success', {}, {})
   end
 
   def auto_capture?
