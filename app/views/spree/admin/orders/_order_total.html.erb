@@ -11,7 +11,7 @@
     <span class="order-total">
       <% shipment = @order.shipments.where(stock_location_id: current_spree_user.stock_locations.first.id).first %>
 
-    $<%= total_shipment_cost(shipment) %>
+    $<%= shipment.total_cost_with_shipping %>
 </span>
   </fieldset>
 <% end %>

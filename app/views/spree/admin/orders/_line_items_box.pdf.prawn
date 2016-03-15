@@ -35,7 +35,7 @@ unless @hide_prices
     end
   end
 
-  total = total_shipment_cost(current_shipment)
+  total = current_shipment.total_cost_with_shipping
   data << [nil, nil, nil, nil, Spree.t(:total), "$#{total}"]
 end
 
