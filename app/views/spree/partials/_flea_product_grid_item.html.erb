@@ -1,0 +1,20 @@
+<% store = current_store %>
+<div class="grid-item col-md-6">
+  <div class="flea-grid">
+    <%= link_to product_url(product, subdomain: store.code) do %>
+      <%= image_tag product.images.first.attachment.url(:large) %>
+      <div class="flea-card--caption">
+        <div class="flea-card--caption__left">
+          <p>
+            <%= truncate(product.name, length: 35) %>
+          </p>
+        </div>
+        <div class="pull-right flea-card--caption__right">
+          <p class="pull-right flea-card--price">
+            $<%= product.price.to_money.as_us_dollar.to_s %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

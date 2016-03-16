@@ -1,0 +1,17 @@
+<% hours = current_store.day_hours.order(:order) %>
+<% unless hours.empty? %>
+  <div>
+    <table>
+      <% hours.each do |h| %>
+        <tr>
+          <td>
+            <%= h.day_name %>
+          </td>
+          <td>
+            <%= h.opening_time.strftime(time_format)  %>-<%= h.closing_time.strftime(time_format) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
