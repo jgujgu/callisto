@@ -12,7 +12,7 @@
     <div id="store-map" class="store-show-map store-map flea-card store-show-widget--child">
     </div>
     <div class="store-show-info flea-card store-show-widget--child">
-      <h4>
+      <h4 class="flea-card--bold">
         <%= current_store.name %>
       </h4>
       <p>
@@ -25,7 +25,9 @@
         <%= current_store.zipcode %>
       </p>
       <p>
-        <%= current_store.phone_number %>
+        <a href="tel:+<%= current_store.phone_number %>">
+          <%= current_store.phone_number %>
+        </a>
       </p>
 
       <%= render partial: "spree/partials/hours" %>

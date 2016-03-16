@@ -8,12 +8,12 @@
       ></div>
     <div class="flea-card--caption">
       <div class="flea-card--caption__left">
-        <p>
+        <p class="flea-card--bold">
           <%= truncate(product.name, length: 35) %>
         </p>
       </div>
       <div class="pull-right flea-card--caption__right">
-        <p class="pull-right flea-card--price">
+        <p class="pull-right">
           $<%= product.price.to_money.as_us_dollar.to_s %>
         </p>
     </div>

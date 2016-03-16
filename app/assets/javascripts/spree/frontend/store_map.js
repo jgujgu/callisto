@@ -119,11 +119,11 @@ $(document).ready(function() {
 
     })(Gmaps.Google.Builders.Marker);
 
-    var defaultZoom = 13;
+    var closeupZoom = 15;
 
     var mapOptions = {
       center: markers[0],
-      zoom: defaultZoom,
+      zoom: closeupZoom,
       styles: styles,
     };
 

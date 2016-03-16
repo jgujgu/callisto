@@ -16,9 +16,12 @@ if (md.phone()) {
     $toggleSearch.css({display: "block"});
     $toggleSearch.show();
 
-
     var windowPath = window.location.pathname;
-    if (windowPath === "/") {
+    var subdomain = window.location.host.split('.')[0];
+    var mainDomain = subdomain === "www" || subdomain === "flea" || subdomain ==="lvh";
+    var rootPath = windowPath === "/";
+
+    if (rootPath && mainDomain) {
       $toggleSearch.addClass("full");
       showSearch($navSearchForm, $btnSearch, $keywords, $wrapper);
       var $timeout = setTimeout(function() {
