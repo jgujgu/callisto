@@ -13,4 +13,5 @@
 //= require gmaps/google
 //= require jquery.slick
 //= require 'icheck'
+//= require masonry/jquery.masonry
 //= require_tree .

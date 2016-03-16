@@ -1,10 +1,35 @@
-<p>
-  <% current_store.as_json.each do |k,v| %>
-    <h3>
-      <%= k %>:
-    </h3>
-    <p>
-      <%= v %>
-    </p>
+<script type="text/javascript" charset="utf-8">
+  var markers = <%= raw @markers.to_json %>
+</script>
+
+<div class="grid col-xs-8">
+  <% @products.each do |p| %>
+    <%= render :partial => 'spree/partials/flea_product_grid_item', locals: { product: p } %>
   <% end %>
-</p>
+</div>
+<div class="col-xs-4 store-show-widget-lg">
+  <div class="store-show-widget">
+    <div id="store-map" class="store-show-map store-map flea-card store-show-widget--child">
+    </div>
+    <div class="store-show-info flea-card store-show-widget--child">
+      <h4>
+        <%= current_store.name %>
+      </h4>
+      <p>
+        <%= current_store.description %>
+      </p>
+      <p>
+        <%= current_store.street_address %></br>
+        <%= current_store.city %>,
+        <%= current_store.state %>
+        <%= current_store.zipcode %>
+      </p>
+      <p>
+        <%= current_store.phone_number %>
+      </p>
+
+      <%= render partial: "spree/partials/hours" %>
+
+    </div>
+  </div>
+</div>

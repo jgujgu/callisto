@@ -36,7 +36,7 @@
           </td>
           <td colspan="1" class="align-center">
             <% current_shipment = order.shipments.detect { |shipment| shipment.stock_location_id == current_store.stock_location.id } %>
-            $<%= current_shipment.pre_tax_amount.to_d %>
+            $<%= current_shipment.pre_tax_amount.to_money.as_us_dollar.to_s %>
         </td>
       <% else %>
         <td colspan='5'><%= Spree.t(:no_shipping_method_selected) %></td>

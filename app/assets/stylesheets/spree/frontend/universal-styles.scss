@@ -137,12 +137,12 @@ a:hover, a:focus {
   color: black !important;
   font-family: "Raleway Bold",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1.5rem;
+  z-index: 999;
 }
 
 @include media-breakpoint-down(sm) {
   .flash.alert {
     font-size: 1.25rem;
-    z-index: 999;
     top: 10rem;
   }
 }

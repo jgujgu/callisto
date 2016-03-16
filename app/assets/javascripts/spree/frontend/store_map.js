@@ -5,46 +5,50 @@ var RichMarkerBuilder,
 handler,
 extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; }, hasProp = {}.hasOwnProperty;
 
-RichMarkerBuilder = (function(superClass) {
-  extend(RichMarkerBuilder, superClass);
-
-  function RichMarkerBuilder() {
-    return RichMarkerBuilder.__super__.constructor.apply(this, arguments);
-  }
-
-  RichMarkerBuilder.prototype.create_marker = function() {
-    var options;
-    options = _.extend(this.marker_options(), this.rich_marker_options());
-    return this.serviceObject = new RichMarker(options);
-  };
-
-  RichMarkerBuilder.prototype.rich_marker_options = function() {
-    var marker = document.createElement("div");
-    if (typeof this.args.id === 'number') {
-      marker.setAttribute('id', 'marker-store-' + this.args.id.toString());
-      if (this.args.id === 0) {
-        marker.setAttribute('class', 'marker-container brand-square marker-focused');
-      } else {
-        marker.setAttribute('class', 'marker-container brand-square');
-      }
-    } else {
-      marker.setAttribute('class', 'marker-user');
-      var userIcon = "<i class='fa fa-user fa-3'></i>";
-      marker.innerHTML = userIcon;
-    }
-    return {
-      content: marker,
-      shadow: "none"
-    };
-  };
-
-  return RichMarkerBuilder;
-
-})(Gmaps.Google.Builders.Marker);
-
 $(document).ready(function() {
   var windowPath = window.location.pathname;
-  if (windowPath === "/") {
+  var subdomain = window.location.host.split('.')[0];
+  var mainDomain = subdomain === "www" || subdomain === "flea" || subdomain ==="lvh";
+  var rootPath = windowPath === "/";
+  if (rootPath && mainDomain) {
+
+    RichMarkerBuilder = (function(superClass) {
+      extend(RichMarkerBuilder, superClass);
+
+      function RichMarkerBuilder() {
+        return RichMarkerBuilder.__super__.constructor.apply(this, arguments);
+      }
+
+      RichMarkerBuilder.prototype.create_marker = function() {
+        var options;
+        options = _.extend(this.marker_options(), this.rich_marker_options());
+        return this.serviceObject = new RichMarker(options);
+      };
+
+      RichMarkerBuilder.prototype.rich_marker_options = function() {
+        var marker = document.createElement("div");
+        if (typeof this.args.id === 'number') {
+          marker.setAttribute('id', 'marker-store-' + this.args.id.toString());
+          if (this.args.id === 0) {
+            marker.setAttribute('class', 'marker-container brand-square marker-focused');
+          } else {
+            marker.setAttribute('class', 'marker-container brand-square');
+          }
+        } else {
+          marker.setAttribute('class', 'marker-user');
+          var userIcon = "<i class='fa fa-user fa-3'></i>";
+          marker.innerHTML = userIcon;
+        }
+        return {
+          content: marker,
+          shadow: "none"
+        };
+      };
+
+      return RichMarkerBuilder;
+
+    })(Gmaps.Google.Builders.Marker);
+
     var lastIndex = markers.length - 1;
     var userMarker = markers[lastIndex]; //user is always the last marker
     var defaultZoom = 13;
@@ -86,6 +90,58 @@ $(document).ready(function() {
 
     $('#product-hero').on('afterChange', function(event, slick, currentSlide, nextSlide){
       updateMarkers(currentSlide);
+    });
+  } else if (rootPath) {
+    RichMarkerBuilder = (function(superClass) {
+      extend(RichMarkerBuilder, superClass);
+
+      function RichMarkerBuilder() {
+        return RichMarkerBuilder.__super__.constructor.apply(this, arguments);
+      }
+
+      RichMarkerBuilder.prototype.create_marker = function() {
+        var options;
+        options = _.extend(this.marker_options(), this.rich_marker_options());
+        return this.serviceObject = new RichMarker(options);
+      };
+
+      RichMarkerBuilder.prototype.rich_marker_options = function() {
+        var marker = document.createElement("div");
+        marker.setAttribute('id', 'marker-store-' + this.args.id.toString());
+        marker.setAttribute('class', 'marker-container brand-square marker-focused');
+        return {
+          content: marker,
+          shadow: "none"
+        };
+      };
+
+      return RichMarkerBuilder;
+
+    })(Gmaps.Google.Builders.Marker);
+
+    var defaultZoom = 13;
+
+    var mapOptions = {
+      center: markers[0],
+      zoom: defaultZoom,
+      styles: styles,
+    };
+
+    handler = Gmaps.build('Google', {
+      builders: {
+        Marker: RichMarkerBuilder
+      }
+    });
+
+    handler.buildMap({
+      provider: mapOptions,
+      internal: {id: 'store-map'}
+    },
+
+    function(){
+      _.each(markers, function(marker, index) {
+        handler.addMarker(marker);
+      });
     });
   }
 

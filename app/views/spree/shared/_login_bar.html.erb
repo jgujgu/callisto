@@ -1,6 +1,6 @@
 <% if spree_current_user %>
   <li class="nav-item">
-    <%= link_to account_path, class: "nav-link", "data-toggle": "tooltip", "data-placement": "bottom", title: "Your Account" do %>
+    <%= link_to account_path, class: "nav-link", "data-toggle": "tooltip", "data-placement": "bottom", title: current_spree_user.email do %>
       <i class="fa fa-user fa-3"></i>
     <% end %>
   </li>

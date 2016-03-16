@@ -4,5 +4,6 @@
  *= require slick
  *= require slick-theme
  *= require icheck/flat/flat
+ *= require 'masonry/basic'
  *= require spree/frontend/frontend_bootstrap
 */

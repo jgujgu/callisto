@@ -33,6 +33,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'puma'
 gem 'stripe'
 gem 'spree_print_invoice', github: 'gemento/solidus_print_invoice'
+gem 'masonry-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -30,6 +30,14 @@ module Spree
         @markers = store_markers + user_marker
       else
         store = Spree::Store.find_by(code: subdomain)
+        @products = store.products
+        @markers = Gmaps4rails.build_markers([store]) do |single_store, marker|
+          directions_link = "http://maps.google.com/maps?saddr=@#{@geocoder_result["latitude"]},#{@geocoder_result["longitude"]}&daddr=@#{single_store[:latitude]},#{single_store[:longitude]}"
+          marker.lat single_store[:latitude]
+          marker.lng single_store[:longitude]
+          marker.infowindow render_to_string(:partial => "/spree/partials/store_marker", locals: { store: single_store, index: 0, directions_link: directions_link })
+          marker.json({ id: 0 })
+        end
         if store
           render "spree/stores/show"
         else

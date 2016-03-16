@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_action :geocode_user
   before_action :set_current_admin_spree_user_store
+  helper_method :time_format
+
+  def time_format
+    "%-I:%M %p"
+  end
 
   def set_current_admin_spree_user_store
     if store_owner_signed_in?

@@ -130,8 +130,6 @@ $box-height-sm: 12rem;
   }
 }
 
-@include media-breakpoint-up(md) {
-}
 @include media-breakpoint-down(sm) {
   .flea-card {
     height: $box-height-sm;
