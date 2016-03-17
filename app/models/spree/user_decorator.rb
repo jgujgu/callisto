@@ -7,7 +7,7 @@ Spree::User.class_eval do
     address = self.default_address
     address.address1 + "," +
     address.city + "," +
-    address.state.to_s + " " +
+    address.state.name + " " +
     address.zipcode
   end
 end

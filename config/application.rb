@@ -47,7 +47,7 @@ module Callisto
 
     # fonts
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
-    config.assets.precompile += %w(*.ttf)
+    config.assets.precompile += %w(*.ttf noimage/*.png)
 
     #images
     config.assets.precompile << /\.(?:png|jpg|jpeg|gif)\z/
