@@ -1,0 +1,13 @@
+<div class="col-lg-4 col-lg-offset-4 login flea-wrap" data-hook="store_new_form">
+  <h6>
+    New Shop Form
+  </h6>
+  <%= form_for [@store], :html => {:multipart => true} do |f| %>
+    <fieldset class="no-border-top">
+      <%= render :partial => 'form', :locals => { :f => f } %>
+
+      <div class="clear"></div>
+      <%= f.submit "Create Shop", class: "button primary btn btn-success-outline" %>
+    </fieldset>
+  <% end %>
+</div>

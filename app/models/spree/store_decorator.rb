@@ -14,6 +14,13 @@ Spree::Store.class_eval do
   belongs_to :country
   belongs_to :state
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :street_address, presence: true
+  validates :city, presence: true
+  validates :zipcode, presence: true
+  validates :hero, presence: true
+
   def create_stock_location
     Spree::StockLocation.find_or_create_by(
       store_id: self.id,
@@ -79,6 +86,7 @@ Spree::Store.class_eval do
     if: -> { respond_to?(:hero_file_name) }
 
   geocoded_by :full_street_address
+
   after_validation :geocode
 
   def full_street_address

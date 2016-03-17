@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 end
 
 Spree::Core::Engine.routes.append do
+  resources :stores, only: [:new, :create, :show]
   namespace :admin do
     resources :stores
     resources :day_hours

@@ -3,17 +3,19 @@
 <%= render 'spree/shared/error_messages', target: resource %>
 
 <div id="new-customer">
-
   <div data-hook="signup" class="col-lg-4 col-lg-offset-4 login flea-wrap">
-    <h6><%= Spree.t(:create_new_account) %></h6>
+    <div id="create-new-account">
+      <h6><%= Spree.t(:create_new_account)%></h6>
+    </div>
     <%= form_for resource, :as => :spree_user, :url => spree.registration_path(resource) do |f| %>
       <div data-hook="signup_inside_form">
         <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+        <%= f.hidden_field :storefront, value: false %>
         <p><%= f.submit Spree.t(:create), :class => 'button primary btn btn-success-outline' %></p>
       </div>
     <% end %>
     <div class="text-center">
-      <%= link_to Spree.t(:login_as_existing), spree.login_path %>
+      <%= link_to Spree.t(:login_as_existing), spree.login_path, id: "login-as-existing" %>
     </div>
   </div>
 

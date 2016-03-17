@@ -1,0 +1,79 @@
+<div data-hook="admin_store_form_fields">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.field_container :name do %>
+        <%= f.label :name, Spree.t(:store_name) %><br />
+        <%= f.text_field :name, :class => 'flea-field' %>
+        <%= error_message_on :store, :name %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.field_container :description do %>
+        <%= f.label :description, "Description" %><br />
+        <%= f.text_field :description, :class => 'flea-field' %>
+        <%= error_message_on :store, :description %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.field_container :street_address do %>
+        <%= f.label :street_address, "Street Address" %><br />
+        <%= f.text_field :street_address, :class => 'flea-field' %>
+        <%= error_message_on :store, :street_address %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.field_container :city do %>
+        <%= f.label :city, "City" %><br />
+        <%= f.text_field :city, :class => 'flea-field' %>
+        <%= error_message_on :store, :city %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6" data-hook="stock_location_state">
+      <%= f.field_container :state_id do %>
+        <%= f.label :state_id %>
+        <span id="state" class="region">
+          <% country = f.object.country || Spree::Country.find_by(id: 232) %>
+          <%= f.collection_select :state_id, country.states.sort, :id, :name, { include_blank: true }, {class: 'select2 flea-field', style: "display: #{country.states.empty? ? 'none' : 'block' };", disabled: country.states.empty?} %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.field_container :zipcode do %>
+        <%= f.label :zipcode, "Zipcode" %><br />
+        <%= f.text_field :zipcode, :class => 'flea-field', maxlength: 5 %>
+        <%= error_message_on :store, :zipcode %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.field_container :phone_number do %>
+        <%= f.label :phone_number, "Phone Number" %><br />
+        <%= f.text_field :phone_number, :class => 'flea-field', maxlength: 14 %>
+        <%= error_message_on :store, :phone_number %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-bottom: 1rem;">
+  <div class="col-xs-12">
+    <%= f.field_container :hero do %>
+      <%= f.label :hero, "Storefront Photo/Hero" %><br />
+      <%= f.file_field :hero %>
+      <%= error_message_on :store, :hero %>
+    <% end %>
+  </div>
+</div>

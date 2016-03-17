@@ -18,7 +18,7 @@
             <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
           </div>
           <div itemprop="store" data-hook="store">
-            <strong>Store</strong>
+            <strong>Shop</strong>
             <% store = @product.stores.first %>
             <%= link_to store.name, root_url(subdomain: store.code) %>
           </div>
