@@ -8,6 +8,7 @@ Spree::Store.class_eval do
   has_many :day_hours
   has_many :users
   has_one :stock_location
+  has_one :user
   after_create :create_stock_location
   after_update :update_stock_location
 

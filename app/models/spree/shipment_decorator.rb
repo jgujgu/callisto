@@ -11,4 +11,8 @@ Spree::Shipment.class_eval do
     end
     manifest_total
   end
+
+  def store
+    self.stock_location.store
+  end
 end
