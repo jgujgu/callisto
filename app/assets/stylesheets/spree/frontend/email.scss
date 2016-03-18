@@ -1,0 +1,48 @@
+@import "bootstrap";
+@font-face {
+  font-family: 'Raleway Regular';
+  src: font-url('Raleway-Regular.ttf') format('truetype');
+}
+$light-grey: #F9F9F7;
+$grey: #888888;
+$black: #222222;
+$brand-teal: #37fce0;
+$transition-time: 0.25s;
+
+.flea-wrap {
+  padding: 1rem;
+  background-color: white !important;
+  border: 1px solid $grey;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: $light-grey !important;
+}
+
+div {
+  font-family: "Raleway Regular",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing: 0px;
+}
+
+.btn {
+  border: 2px solid transparent !important;
+  user-select: none !important;
+  border-radius: $btn-border-radius !important;
+}
+
+.btn-success-outline {
+  color: $black !important;
+  border-color: $brand-teal !important;
+  transition: $transition-time;
+}
+
+.btn-success-outline:hover, .btn-success-outline:focus, .btn-success-outline:active {
+  background-color: $brand-teal !important;
+  transition: $transition-time;
+  outline: none !important;
+}
+
+.text-center {
+  text-align: center;
+}

@@ -41,7 +41,10 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
   config.assets.precompile += %w(*.ttf)
 
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = {
+    :host => 'lvh.me',
+    :port => 3000
+  }
 
   #configure unicorn
 
