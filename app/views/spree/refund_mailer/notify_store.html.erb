@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="spree/frontend/email.css">
+<div class="flea-wrap">
+  <p>
+    Your shop has been refunded
+    $<%= @amount %>.
+  </p>
+  <p>
+    Please use Stripe Reimbursement ID
+    <b>
+      <%= @refund_id %>
+    </b>
+    as reference for any questions.
+  </p>
+</div>
