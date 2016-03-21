@@ -34,6 +34,7 @@ gem 'puma'
 gem 'stripe'
 gem 'spree_print_invoice', github: 'gemento/solidus_print_invoice'
 gem 'masonry-rails'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'

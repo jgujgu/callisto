@@ -51,5 +51,8 @@ module Callisto
 
     #images
     config.assets.precompile << /\.(?:png|jpg|jpeg|gif)\z/
+
+    #sidekiq
+    config.active_job.queue_adapter = :sidekiq
   end
 end
