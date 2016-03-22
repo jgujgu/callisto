@@ -4,11 +4,17 @@
   <% end %>
 
   <% if Spree::Order.checkout_step_names.include?(:delivery) %>
-    <%= render :partial => "spree/admin/orders/carton", :collection => @order.cartons.order(:shipped_at), :locals => { :order => order } %>
-    <%= render :partial => "spree/admin/orders/shipment", :collection => @order.shipments.order(:created_at), :locals => { :order => order } %>
+    <% if current_spree_user.has_spree_role?("super_admin") %>
+      <%= render :partial => "spree/admin/orders/carton", :collection => @order.cartons.order(:shipped_at), :locals => { :order => order } %>
+      <%= render :partial => "spree/admin/orders/shipment", :collection => @order.shipments.order(:created_at), :locals => { :order => order } %>
+    <% else %>
+      <%= render :partial => "spree/admin/orders/carton", :collection => @order.cartons.where(stock_location_id: current_store.stock_location.id).order(:shipped_at), :locals => { :order => order } %>
+      <%= render :partial => "spree/admin/orders/shipment", :collection => @order.shipments.order(:created_at), :locals => { :order => order } %>
+    <% end %>
   <% else %>
     <%= render :partial => "spree/admin/orders/line_items", :locals => { :order => order } %>
   <% end %>
+
   <%= render :partial => "spree/admin/orders/adjustments", :locals => {
     :adjustments => @order.line_item_adjustments,
     :order => order,
