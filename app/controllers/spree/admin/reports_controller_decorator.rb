@@ -1,6 +1,13 @@
 Spree::Admin::ReportsController.class_eval do
   before_filter :spree_reports_setup, only: [:index]
 
+  def index
+    @reports = Spree::Admin::ReportsController.available_reports
+    unless current_spree_user.has_spree_role? "super_admin"
+      @reports.delete(:sales_total)
+    end
+  end
+
   def orders_by_period
     unless current_spree_user.has_spree_role? "super_admin"
       params[:state] = "complete_paid"
