@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315003623) do
+ActiveRecord::Schema.define(version: 20160322172600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -685,6 +685,7 @@ ActiveRecord::Schema.define(version: 20160315003623) do
     t.decimal  "total",                precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "store_id"
   end
 
   add_index "spree_reimbursements", ["customer_return_id"], name: "index_spree_reimbursements_on_customer_return_id", using: :btree
