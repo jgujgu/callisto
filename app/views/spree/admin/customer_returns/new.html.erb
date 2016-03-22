@@ -37,7 +37,7 @@
           <% if current_spree_user.has_spree_role? "super_admin" %>
             <%= f.select :stock_location_id, Spree::StockLocation.order_default.to_a.collect{|l|[l.name.humanize, l.id]}, {include_blank: true}, {class: 'select2 fullwidth', "data-placeholder" => Spree.t(:select_a_stock_location)} %>
           <% else %>
-            <%= f.select :stock_location_id, options_for_select(Spree::StockLocation.order_default.to_a.collect{|l|[l.name.humanize, l.id]}, current_store.id), {include_blank: true}, {class: 'select2 fullwidth', "data-placeholder" => Spree.t(:select_a_stock_location), disabled: true} %>
+            <%= f.select :stock_location_id, options_for_select(Spree::StockLocation.order_default.to_a.collect{|l|[l.name.humanize, l.id]}, current_store.stock_location.id), {include_blank: true}, {class: 'select2 fullwidth', "data-placeholder" => Spree.t(:select_a_stock_location), disabled: true} %>
           <% end %>
           <%= f.error_message_on :stock_location_id %>
         <% end %>
