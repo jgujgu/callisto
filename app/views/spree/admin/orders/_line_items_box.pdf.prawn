@@ -35,6 +35,11 @@ unless @hide_prices
     end
   end
 
+  filter_adjustments(@order.all_adjustments.eligible).each do |adjustment|
+    extra_row_count += 1
+    data << [nil, nil, nil, nil, adjustment.label, adjustment.display_amount.to_s]
+  end
+
   total = current_shipment.total_cost_with_shipping
   data << [nil, nil, nil, nil, Spree.t(:total), "$#{total}"]
 end

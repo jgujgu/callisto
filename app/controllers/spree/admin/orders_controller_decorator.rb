@@ -1,5 +1,6 @@
 Spree::Admin::OrdersController.class_eval do
   respond_to :pdf
+  helper_method :filter_adjustments
 
   def show
     load_order
@@ -77,5 +78,21 @@ Spree::Admin::OrdersController.class_eval do
     # Restore dates
     params[:q][:created_at_gt] = created_at_gt
     params[:q][:created_at_lt] = created_at_lt
+  end
+
+  def filter_adjustments(adjustments)
+    unless adjustments.empty?
+      adjustments = adjustments.select do |a|
+        if a.adjustable_type == "Spree::LineItem"
+
+          a.adjustable.variant.product.stores.first.id == current_store.id
+        elsif a.adjustable_type ==  "Spree::Shipment"
+          a.adjustable.stock_location_id == current_store.stock_location.id
+        else
+          true
+        end
+      end
+    end
+    adjustments
   end
 end
