@@ -1,5 +1,6 @@
 Spree::Admin::ProductsController.class_eval do
   create.before :set_store_on_product
+  update.before :set_store_on_product
 
   def index
     session[:return_to] = request.url
@@ -11,6 +12,8 @@ Spree::Admin::ProductsController.class_eval do
   end
 
   def set_store_on_product
-    params[:product][:store_ids] = [current_store.id]
+    unless current_spree_user.has_spree_role? "super_admin"
+      params[:product][:store_ids] = [current_store.id]
+    end
   end
 end
