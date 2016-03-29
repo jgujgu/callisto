@@ -36,6 +36,7 @@ gem 'spree_print_invoice', github: 'gemento/solidus_print_invoice'
 gem 'masonry-rails'
 gem 'sidekiq'
 gem 'spree_reports', github: 'jgujgu/spree_reports'
+gem 'hurley'
 
 group :development, :test do
   gem 'byebug'

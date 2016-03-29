@@ -1,14 +1,31 @@
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script type="text/javascript" charset="utf-8">
+  var paymentSubmitDisabled = true;
   <% if current_spree_user %>
       var email = "<%= raw current_spree_user.email %>";
   <% else %>
       var email = "";
   <% end %>
 </script>
-<button id="stripeButton" class="btn btn-success-outline">
-  <%= Spree.t(:pay_with_card) %>
-</button>
 <% param_prefix = "payment_source[#{payment_method.id}]" %>
-<%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "stripe_token", :class => 'stripeToken' %>
+<% if current_spree_user && current_spree_user.stripe_customer_id %>
+  <div id="keepPriorInformation">
+    <%= radio_button_tag :payment_choice, "prior", true %>
+    <%= label_tag "payment_choice_prior", "Use Prior Payment Information"%>
+  </div>
+  <div id="updateStripeButton">
+    <%= radio_button_tag :payment_choice, "update" %>
+    <%= label_tag "payment_choice_update", "Update Payment Information"%>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    var stripe_customer_id = "<%= raw current_spree_user.stripe_customer_id %>";
+    var paymentSubmitDisabled = false;
+  </script>
+  <%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", current_spree_user.stripe_customer_id, :id => "stripe_token", :class => 'stripeToken' %>
+<% else %>
+  <button id="stripeButton" class="btn btn-success-outline">
+    <%= Spree.t(:pay_with_card) %>
+  </button>
+  <%= hidden_field_tag "#{param_prefix}[gateway_payment_profile_id]", '', :id => "stripe_token", :class => 'stripeToken' %>
+<% end %>
 <%= hidden_field_tag "#{param_prefix}[cc_type]", '', :id => "cc_type", :class => 'ccType' %>

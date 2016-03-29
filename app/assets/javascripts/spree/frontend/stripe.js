@@ -4,7 +4,13 @@ $(document).ready(function() {
     var $tripeButton = $('#stripeButton');
     $tripeButton.prop('disabled', false);
     var $paymentSubmit = $("#payment-submit");
-    $paymentSubmit.prop('disabled', true);
+    if (paymentSubmitDisabled) {
+      $paymentSubmit.prop('disabled', true);
+    } else {
+      $paymentSubmit.prop('disabled', false);
+    }
+    var updateStripeButton = $('#updateStripeButton');
+    var keepPriorInformation = $('#keepPriorInformation');
 
     var handler = StripeCheckout.configure({
       key: 'pk_test_fads0ZlNqu7ZE4dh5Ko3U4Mr',
@@ -21,8 +27,22 @@ $(document).ready(function() {
       handler.open({
         name: 'Flea',
         email: email,
+        panelLabel: 'Use Card',
       });
       e.preventDefault();
+    });
+
+    $('#payment_choice_prior').on('ifChecked', function(){
+      $("#stripe_token").val(stripe_customer_id);
+      $paymentSubmit.prop('disabled', false);
+    });
+
+    $('#payment_choice_update').on('ifChecked', function(){
+      handler.open({
+        name: 'Flea',
+        email: email,
+        panelLabel: 'Update Card',
+      });
     });
 
     $(window).on('popstate', function() {

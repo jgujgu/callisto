@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322172600) do
+ActiveRecord::Schema.define(version: 20160329201637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -766,6 +766,7 @@ ActiveRecord::Schema.define(version: 20160322172600) do
     t.decimal  "promo_total",          precision: 10, scale: 2, default: 0.0
     t.decimal  "included_tax_total",   precision: 10, scale: 2, default: 0.0, null: false
     t.decimal  "pre_tax_amount",       precision: 12, scale: 4, default: 0.0, null: false
+    t.string   "stripe_charge_id"
   end
 
   add_index "spree_shipments", ["address_id"], name: "index_spree_shipments_on_address_id", using: :btree
@@ -1028,6 +1029,7 @@ ActiveRecord::Schema.define(version: 20160322172600) do
     t.string   "phone_number",      default: "9999999999"
     t.integer  "country_id",        default: 232
     t.integer  "state_id",          default: 3530
+    t.string   "stripe_user_id"
   end
 
   add_index "spree_stores", ["code"], name: "index_spree_stores_on_code", using: :btree
@@ -1190,6 +1192,7 @@ ActiveRecord::Schema.define(version: 20160322172600) do
     t.integer  "store_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "stripe_customer_id"
   end
 
   add_index "spree_users", ["deleted_at"], name: "index_spree_users_on_deleted_at", using: :btree

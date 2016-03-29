@@ -1,7 +1,10 @@
 Spree::Shipment.class_eval do
   def total_cost_with_shipping
-    shipping_price = self.pre_tax_amount + self.adjustment_total
-    total_item_cost + shipping_price
+    total_item_cost + total_shipping_cost
+  end
+
+  def total_shipping_cost
+    self.pre_tax_amount + self.adjustment_total
   end
 
   def total_item_cost
