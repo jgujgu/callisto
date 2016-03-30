@@ -75,8 +75,7 @@ module Spree
         redirect_to connect_stripe_path
       else
         store = current_spree_user.store
-        store.stripe_user_id = body["stripe_user_id"]
-        store.save
+        store.update(stripe_user_id: body["stripe_user_id"])
         flash[:notice] = "Thank you for signing up. You can now log in and list products."
         redirect_to admin_orders_path
       end
