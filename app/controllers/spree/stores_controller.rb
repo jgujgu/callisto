@@ -56,6 +56,7 @@ module Spree
       @stripe_connect_url += "&stripe_user[zip]=#{stripe_user_zip}"
       @stripe_connect_url += "&stripe_user[product_description]=#{stripe_user_product_description}"
       @stripe_connect_url += "&stripe_user[business_name]=#{stripe_user_product_business_name}"
+      @stripe_connect_url += "&redirect_uri=#{ENV["STRIPE_REDIRECT_URI"]}"
     end
 
     def connect_stripe_complete
