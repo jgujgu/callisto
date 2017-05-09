@@ -5,7 +5,7 @@ module Spree
 
     def index
       subdomain = request.subdomain
-      if subdomain == "www" || subdomain == "flea" || subdomain.empty?
+      if subdomain == "www" || subdomain == "flea" || subdomain == "fleas" || subdomain == "callisto-boutique" || subdomain.empty?
         @stores = Spree::Store.showcases
         @searcher = build_searcher(params.merge(include_images: true))
         @product_batches = ProductBatchService.get_batches(@stores)
